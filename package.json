@@ -1,6 +1,6 @@
 {
   "name"        : "restutils-host",
-  "version"     : "0.0.1",
+  "version"     : "0.0.2",
   "description" : "RESTUtils Host",
   "main"        : "src/index.js",
   "preferGlobal": true,
