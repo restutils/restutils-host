@@ -35,19 +35,19 @@ npm i -g restutils-host
 Launching can be as simple as ... 
 
 ```bash
-restutils-host --name "my-utility"
+npx restutils-host --name "my-utility"
 ```
 
 ... or, if your project is in a Git repo, just point it there ... 
 
 ```bash
-restutils-host --repo "https://github.com/codergod/my-utility.git"
+npx restutils-host --repo "https://github.com/codergod/my-utility.git"
 ```
 
 You can even use the worlds simplest JavaScript file...
 
 ```bash
-restutils-host --path "~/my-utility.js"
+npx restutils-host --path "~/my-utility.js"
 ```
 
 ## Parameters
