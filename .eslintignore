@@ -1,0 +1,6 @@
+/src/data/models/*.js
+/prisma/migrations
+schema.prisma
+_archive
+*removed*
+

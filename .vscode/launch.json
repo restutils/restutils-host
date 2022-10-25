@@ -1,0 +1,290 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "CLI 00 - Print Markdown",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/src/command.js",
+      "args": ["--cli-markdown"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "CLI 00 - Print Help",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/src/command.js",
+      "args": ["--help"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "CLI 01 - Empty",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/src/command.js",
+      "args": []
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "CLI 02 - File (Hello World)",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/src/command.js",
+      "args": [
+        "--path",
+        "${workspaceFolder}/samples/hello-world/index.js"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "CLI 03 - File (Functions)",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/src/command.js",
+      "args": [
+        "--path",
+        "${workspaceFolder}/samples/functions/index.js"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "CLI 04 - File (Nested)",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/src/command.js",
+      "args": [
+        "--path",
+        "${workspaceFolder}/samples/nested/index.js"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "CLI 05 - File (Async)",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/src/command.js",
+      "args": [
+        "--path",
+        "${workspaceFolder}/samples/async/index.js"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "CLI 06 - File (Deep Nested)",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/src/command.js",
+      "args": [
+        "--path",
+        "${workspaceFolder}/samples/deep-nesting/index.js"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "CLI 07 - File (Excessive Nesting)",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/src/command.js",
+      "args": [
+        "--path",
+        "${workspaceFolder}/samples/excessive-nesting/index.js"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "CLI 08 - File (Limited Nesting)",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/src/command.js",
+      "args": [
+        "--path",
+        "${workspaceFolder}/samples/excessive-nesting/index.js",
+        "--depth",
+        "2"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "CLI 09 - File (Dependencies)",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/src/command.js",
+      "args": [
+        "--path",
+        "${workspaceFolder}/samples/package-json",
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "CLI 10 - File (Skip Dependencies)",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/src/command.js",
+      "args": [
+        "--path",
+        "${workspaceFolder}/samples/package-json",
+        "--install",
+        "false",
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "CLI 11 - NPM Package",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/src/command.js",
+      "args": [
+        "--name",
+        "uuid",
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "CLI 12 - Git Repo",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/src/command.js",
+      "args": [
+        "--repo",
+        "https://github.com/FredLackey/cleaner-node.git",
+      ]
+    },
+
+
+    // {
+    //   "type": "node",
+    //   "request": "launch",
+    //   "name": "CLI 02 - Duplicate Packages",
+    //   "skipFiles": ["<node_internals>/**"],
+    //   "program": "${workspaceFolder}/src/command.js",
+    //   "args": [
+    //     "--path",
+    //     "/Users/flackey/Source/restutils/restutils-node",
+    //     "--name",
+    //     "restutils-node",
+    //     "--copy",
+    //     "--use-name",
+    //     "--ignore",
+    //     "--recursive"
+    //   ]
+    // },
+
+    
+
+    // {
+    //   "type": "node",
+    //   "request": "launch",
+    //   "name": "CLI 02 - Copy",
+    //   "skipFiles": ["<node_internals>/**"],
+    //   "program": "${workspaceFolder}/src/command.js",
+    //   "args": [
+    //     "--source",
+    //     "/Users/flackey/Prep/Screeenshots/Fred/",
+    //     "--target",
+    //     "/Volumes/Data/Backups/Screenshots/",
+    //     "--copy",
+    //     "--use-name",
+    //     "--ignore",
+    //     "--recursive"
+    //   ]
+    // },
+    // {
+    //   "type": "node",
+    //   "request": "launch",
+    //   "name": "CLI 03 - Overwrite",
+    //   "skipFiles": ["<node_internals>/**"],
+    //   "program": "${workspaceFolder}/src/command.js",
+    //   "args": [
+    //     "--source",
+    //     "/Users/flackey/pCloud Drive/Automatic Upload/",
+    //     "--target",
+    //     "/Volumes/Data/Multimedia/Photos/",
+    //     "--move",
+    //     "--overwrite",
+    //     "--use-name",
+    //     "--recursive"
+    //   ]
+    // },
+    // {
+    //   "type": "node",
+    //   "request": "launch",
+    //   "name": "CLI 04 - Defaults",
+    //   "skipFiles": ["<node_internals>/**"],
+    //   "program": "${workspaceFolder}/src/command.js",
+    //   "args": [
+    //     "--source",
+    //     "/Users/flackey/pCloud Drive/Automatic Upload/",
+    //     "--target",
+    //     "/Volumes/MPHD01/Multimedia/Photos/",
+    //     "--move",
+    //     "--use-name",
+    //     "--recursive",
+    //     "--console",
+    //     "--ignore"
+    //   ]
+    // },
+    // {
+    //   "type": "node",
+    //   "request": "launch",
+    //   "name": "CLI 05 - Limits",
+    //   "skipFiles": ["<node_internals>/**"],
+    //   "program": "${workspaceFolder}/src/command.js",
+    //   "args": [
+    //     "--source",
+    //     "/Users/flackey/pCloud Drive/Automatic Upload/",
+    //     "--target",
+    //     "/Volumes/MPHD01/Multimedia/Photos/",
+    //     "--move",
+    //     "--use-name",
+    //     "--recursive",
+    //     "--console",
+    //     "--overwrite",
+    //     "--limit",
+    //     "1"
+    //   ]
+    // },
+    // {
+    //   "type": "node",
+    //   "request": "launch",
+    //   "name": "CLI 06 - Created",
+    //   "skipFiles": ["<node_internals>/**"],
+    //   "program": "${workspaceFolder}/src/command.js",
+    //   "args": [
+    //     "--source",
+    //     "/Users/flackey/pCloud Drive/Automatic Upload/",
+    //     "--target",
+    //     "/Volumes/MPHD01/Multimedia/Photos/",
+    //     "--move",
+    //     "--use-name",
+    //     "--use-created",
+    //     "--recursive",
+    //     "--console",
+    //     "--overwrite",
+    //     "--limit",
+    //     "1"
+    //   ]
+    // },
+    // {
+    //   "type": "node",
+    //   "request": "launch",
+    //   "name": "CLI 07 - Type",
+    //   "skipFiles": ["<node_internals>/**"],
+    //   "program": "${workspaceFolder}/src/command.js",
+    //   "args": [
+    //     "--source",
+    //     "/Volumes/ARK01/Multimedia/Pictures",
+    //     "--target",
+    //     "/Volumes/ARK01/Multimedia/_Pictures",
+    //     "--move",
+    //     "--use-name",
+    //     "--recursive",
+    //     "--add-type",
+    //     "--console"
+    //   ]
+    // }
+  ]
+}
