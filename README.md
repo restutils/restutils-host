@@ -12,6 +12,15 @@ Quickly convert any basic JavaScript library into a web-based API by issuing one
 
 This initial version has never seen the light of day.  It's been written by [one guy](https://www.fredlackey.com).  And, is still being tested, expanded, developed, etc., etc., etc.  So, try it out and beat the snot out of it before you use it anywhere.  If you run into any quesitons, send an [email](mailto:fredlackey@gmail.com) or [open an issue on GitHub](https://github.com/restutils/restutils-host/issues)
 
+## Coding Requirement (Singular)
+
+Yeah, yeah, yeah.  So, what's the catch?  Right?  Well, there is one small rule:
+
+**`Rule #1`**  
+Each method in your class must receive one single property and return an object, string, or other primative.  Each function in your library will be wrapped with a `POST` operation where the entire `request.body` object will be sent inside.  All properties in your library become `GET` operations.
+
+**`Rule #2`**  
+There isn't a second rule... just that one above.
 
 ## Installation
 
