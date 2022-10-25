@@ -1,7 +1,7 @@
 {
   "name"        : "restutils-host",
-  "version"     : "0.0.0",
-  "description" : "Instantly convert any JavaScript library into a web-based API",
+  "version"     : "0.0.1",
+  "description" : "RESTUtils Host",
   "main"        : "src/index.js",
   "preferGlobal": true,
   "bin"         : {
