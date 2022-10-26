@@ -3,7 +3,7 @@ const _       = require('../../utils');
 const pkg     = require('../../../package.json');
 
 // const { NODE_ENV = '' } = process.env;
-const NODE_ENV = 'dev';
+// const NODE_ENV = 'dev';
 const EMPTY_OK = true;
 
 const toUrl = (curPath, key) => {
@@ -105,15 +105,15 @@ const buildRouterFromLibrary = opts => {
     return res.json(response);
   });
   
-  if (NODE_ENV.startsWith('dev')) {
-    console.debug(' ');
-  }
+  // if (NODE_ENV.startsWith('dev')) {
+  //   console.debug(' ');
+  // }
   
   buildRouter(opts.router, opts.base, opts.library, opts)
 
-  if (NODE_ENV.startsWith('dev')) {
-    console.debug(' ');
-  }
+  // if (NODE_ENV.startsWith('dev')) {
+  //   console.debug(' ');
+  // }
 
   if (opts.routes.length === 0) {
     return ['Nothing to do.'];
