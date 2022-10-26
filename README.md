@@ -10,6 +10,11 @@ Quickly convert any basic JavaScript library into a web-based API by issuing one
 
 ![Console Output](./docs/images/console-output.png)
 
+## Simplified Samples
+
+:---:|:---:
+| []() | The initial idea of this package was to eliminate all of the boilerplate code needed to stand up APIs when prototyping microservices.  Continuously building the same route files and middleware just doesn't make sense.  With this technique you can focus on carving out the business logic without worrying about how it will be hosted once you're done.  Check out the includes samples to see just how simple your code can be. |
+
 ## Disclaimer  
 
 This initial version has never seen the light of day.  It's been written by [one guy](https://www.fredlackey.com).  And, is still being tested, expanded, developed, etc., etc., etc.  So, try it out and beat the snot out of it before you use it anywhere.  If you run into any quesitons, send an [email](mailto:fredlackey@gmail.com) or [open an issue on GitHub](https://github.com/restutils/restutils-host/issues)
@@ -73,3 +78,5 @@ Please feel free to contact me directly with any questions, comments, or enhance
 **Fred Lackey**  
 **[fred.lackey@gmail.com](mailto://fred.lackey@gmail.com)**  
 **[http://fredlackey.com](http://www.fredlackey.com)**  
+
+
