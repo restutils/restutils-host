@@ -12,7 +12,7 @@ Quickly convert any basic JavaScript library into a web-based API by issuing one
 
 ## Simplified Samples
 
-<img align="right" width="50%" height="50%" src="./docs/images/samples.png">
+<img align="right" width="30%" height="30%" src="./docs/images/samples.png">
 The initial idea of this package was to eliminate all of the boilerplate code needed to stand up APIs when prototyping microservices.  Continuously building the same route files and middleware just doesn't make sense.  With this technique you can focus on carving out the business logic without worrying about how it will be hosted once you're done.  Check out the includes samples to see just how simple your code can be.
 
 ## Disclaimer  
