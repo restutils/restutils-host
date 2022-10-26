@@ -8,7 +8,7 @@ Async?  Sync?  Await?  Callbacks?  Nonsense!
 
 Quickly convert any basic JavaScript library into a web-based API by issuing one command.  You don't even need to install it!  This lil' uitlity will pull down and pull in your project, stick a web server in front of it, and setup routes for every property or function within it.
 
-![Console Output](./docs/images/console-output.png)
+![Console Output](./docs/images/console-output-short.png)
 
 ## Simplified Samples
 
