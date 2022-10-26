@@ -65,7 +65,7 @@ npx restutils-host --path "~/my-utility.js"
 | `path`    | Full path to local package     | `string (path)` |         |
 | `env`     | Full path to environment file  | `string (path)` |         |
 | `repo`    | URL to hosted Git repo         | `string`        |         |
-| `depth`   | Maximum levels to recurse      | `number`        | `null`  |
+| `depth`   | Maximum levels to recurse      | `number`        |         |
 | `base`    | Base path of listener          | `string`        |         |
 | `cors`    | Enable CORS                    | `boolean`       | `true`  |
 | `port`    | Port for incoming requests     | `number`        | `3000`  |
