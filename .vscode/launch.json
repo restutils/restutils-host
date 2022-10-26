@@ -153,7 +153,17 @@
         "https://github.com/FredLackey/cleaner-node.git",
       ]
     },
-
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "CLI 13 - Database",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/src/command.js",
+      "args": [
+        "--path",
+        "${workspaceFolder}/samples/database"
+      ]
+    },
 
     // {
     //   "type": "node",

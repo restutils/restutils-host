@@ -132,13 +132,11 @@ const buildRouterFromLibrary = opts => {
   // Error handling route
   opts.router.use((err, req, res, next) => {
     let message = 'Something failed!';
-    if (process.env.NODE_ENV.startsWith('dev')) {
-      console.log(JSON.stringify(err, null, 2));
-      if (err.message) {
-        message = err.message;
-      }
+    console.debug(JSON.stringify(err, null, 2));
+    if (err.message) {
+      message = err.message;
     }
-    if (req.xhr) {
+  if (req.xhr) {
       return res.status(err.status || 500).send({ error: message });
     } 
     next(err);
