@@ -71,6 +71,22 @@ npx restutils-host --path "~/my-utility.js"
 | `port`    | Port for incoming requests     | `number`        | `3000`  |
 | `install` | Install dependencies if needed | `boolean`       | `true`  |
 
+## Debugging
+
+Nothing changes while debugging your libraries.  Passing the `--node-options` switch to `npx` causes the Node Debugger to listen as it normally would:
+
+![Debug Command](./docs/images/debugging-command.png)
+
+  So, that command above would become...
+
+```bash
+npx --node-options=--inspect restutils-host --path "~/my-utility.js"
+```
+
+Then just tell your IDE to attach to the process.  In VSCode this is done by creating a debug configuration: 
+
+![Debug Command](./docs/images/debugging-attach.png)
+
 ## Contact
 
 Please feel free to contact me directly with any questions, comments, or enhancement requests:
