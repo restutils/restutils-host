@@ -17,7 +17,7 @@ The initial idea of this package was to eliminate all of the boilerplate code ne
 
 ## Disclaimer  
 
-This initial version has never seen the light of day.  It's been written by [one guy](https://www.fredlackey.com).  And, is still being tested, expanded, developed, etc., etc., etc.  So, try it out and beat the snot out of it before you use it anywhere.  If you run into any quesitons, send an [email](mailto:fredlackey@gmail.com) or [open an issue on GitHub](https://github.com/restutils/restutils-host/issues)
+This initial version has never seen the light of day.  It's been written by [one guy](https://www.fredlackey.com).  And, is still being tested, expanded, developed, etc., etc., etc.  So, try it out and beat the snot out of it before you use it anywhere.  If you run into any quesitons, send an [email](mailto:fred.lackey@gmail.com) or [open an issue on GitHub](https://github.com/restutils/restutils-host/issues)
 
 ## Coding Requirement (Singular)
 
