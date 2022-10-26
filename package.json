@@ -1,6 +1,6 @@
 {
   "name"        : "restutils-host",
-  "version"     : "0.0.2",
+  "version"     : "0.0.3",
   "description" : "RESTUtils Host",
   "main"        : "src/index.js",
   "preferGlobal": true,
@@ -17,7 +17,15 @@
     "type": "git",
     "url" : "git+https://github.com/restutils/restutils-host.git"
   },
-  "keywords": [],
+  "keywords": [
+    "api",
+    "generator",
+    "instant",
+    "expressjs",
+    "express",
+    "rest",
+    "utils"
+  ],
   "author"  : {
     "name" : "Fred Lackey",
     "email": "fred.lackey@gmail.com",
