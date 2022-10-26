@@ -2,6 +2,8 @@ const cors    = require('cors');
 const express = require('express');
 const pkg     = require('../../package.json');
 
+const TITLE = 'RESTUtils Host';
+
 const startServer = (opts) => {
 
   const app = express();
@@ -32,7 +34,7 @@ const startServer = (opts) => {
 
   app.listen(opts.port, (err) => {
     if (err) { throw err; }
-    console.info(`${pkg.description || pkg.name} v${pkg.version}`);
+    console.info(`${TITLE} v${pkg.version}`);
     console.info(`PORT : ${opts.port}`);
     // console.info(`ENV : ${NODE_ENV}`);
     console.info(`BASE : ${opts.base || '(not set)'}`);
