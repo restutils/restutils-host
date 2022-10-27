@@ -6,7 +6,7 @@ function callUpstreamServer(sampleUrl) {
   });
 }
 
-const getSome = async (data) => {
+const getSome = async () => {
 
   console.debug('in getSome ... start')
 
