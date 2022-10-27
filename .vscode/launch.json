@@ -173,137 +173,17 @@
         "${workspaceFolder}/samples/database"
       ]
     },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "CLI 14 - Params",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/src/command.js",
+      "args": [
+        "--path",
+        "${workspaceFolder}/samples/params/index.js"
+      ]
+    },
 
-    // {
-    //   "type": "node",
-    //   "request": "launch",
-    //   "name": "CLI 02 - Duplicate Packages",
-    //   "skipFiles": ["<node_internals>/**"],
-    //   "program": "${workspaceFolder}/src/command.js",
-    //   "args": [
-    //     "--path",
-    //     "/Users/flackey/Source/restutils/restutils-node",
-    //     "--name",
-    //     "restutils-node",
-    //     "--copy",
-    //     "--use-name",
-    //     "--ignore",
-    //     "--recursive"
-    //   ]
-    // },
-
-    
-
-    // {
-    //   "type": "node",
-    //   "request": "launch",
-    //   "name": "CLI 02 - Copy",
-    //   "skipFiles": ["<node_internals>/**"],
-    //   "program": "${workspaceFolder}/src/command.js",
-    //   "args": [
-    //     "--source",
-    //     "/Users/flackey/Prep/Screeenshots/Fred/",
-    //     "--target",
-    //     "/Volumes/Data/Backups/Screenshots/",
-    //     "--copy",
-    //     "--use-name",
-    //     "--ignore",
-    //     "--recursive"
-    //   ]
-    // },
-    // {
-    //   "type": "node",
-    //   "request": "launch",
-    //   "name": "CLI 03 - Overwrite",
-    //   "skipFiles": ["<node_internals>/**"],
-    //   "program": "${workspaceFolder}/src/command.js",
-    //   "args": [
-    //     "--source",
-    //     "/Users/flackey/pCloud Drive/Automatic Upload/",
-    //     "--target",
-    //     "/Volumes/Data/Multimedia/Photos/",
-    //     "--move",
-    //     "--overwrite",
-    //     "--use-name",
-    //     "--recursive"
-    //   ]
-    // },
-    // {
-    //   "type": "node",
-    //   "request": "launch",
-    //   "name": "CLI 04 - Defaults",
-    //   "skipFiles": ["<node_internals>/**"],
-    //   "program": "${workspaceFolder}/src/command.js",
-    //   "args": [
-    //     "--source",
-    //     "/Users/flackey/pCloud Drive/Automatic Upload/",
-    //     "--target",
-    //     "/Volumes/MPHD01/Multimedia/Photos/",
-    //     "--move",
-    //     "--use-name",
-    //     "--recursive",
-    //     "--console",
-    //     "--ignore"
-    //   ]
-    // },
-    // {
-    //   "type": "node",
-    //   "request": "launch",
-    //   "name": "CLI 05 - Limits",
-    //   "skipFiles": ["<node_internals>/**"],
-    //   "program": "${workspaceFolder}/src/command.js",
-    //   "args": [
-    //     "--source",
-    //     "/Users/flackey/pCloud Drive/Automatic Upload/",
-    //     "--target",
-    //     "/Volumes/MPHD01/Multimedia/Photos/",
-    //     "--move",
-    //     "--use-name",
-    //     "--recursive",
-    //     "--console",
-    //     "--overwrite",
-    //     "--limit",
-    //     "1"
-    //   ]
-    // },
-    // {
-    //   "type": "node",
-    //   "request": "launch",
-    //   "name": "CLI 06 - Created",
-    //   "skipFiles": ["<node_internals>/**"],
-    //   "program": "${workspaceFolder}/src/command.js",
-    //   "args": [
-    //     "--source",
-    //     "/Users/flackey/pCloud Drive/Automatic Upload/",
-    //     "--target",
-    //     "/Volumes/MPHD01/Multimedia/Photos/",
-    //     "--move",
-    //     "--use-name",
-    //     "--use-created",
-    //     "--recursive",
-    //     "--console",
-    //     "--overwrite",
-    //     "--limit",
-    //     "1"
-    //   ]
-    // },
-    // {
-    //   "type": "node",
-    //   "request": "launch",
-    //   "name": "CLI 07 - Type",
-    //   "skipFiles": ["<node_internals>/**"],
-    //   "program": "${workspaceFolder}/src/command.js",
-    //   "args": [
-    //     "--source",
-    //     "/Volumes/ARK01/Multimedia/Pictures",
-    //     "--target",
-    //     "/Volumes/ARK01/Multimedia/_Pictures",
-    //     "--move",
-    //     "--use-name",
-    //     "--recursive",
-    //     "--add-type",
-    //     "--console"
-    //   ]
-    // }
   ]
 }

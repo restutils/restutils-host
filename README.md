@@ -29,6 +29,12 @@ Each method in your class must receive one single property and return an object,
 **`Rule #2`**  
 There isn't a second rule... just that one above.
 
+## Simplified Data Handling
+
+Remember Rule #1 from above?  How the body of each request is passed in to your functions as a single parameter?  Well, this includes querystring parameters.  All data received by your function is combined into this single object parameter for simplicity.  This means your calling application can send in both a JSON object as well as querstring parameters and you don't have to parse them separately.
+
+![Combined Parameters](./docs/images/merged-params.png)
+
 ## Installation
 
 It's best to run from `npx` but it can be installed globally...
@@ -94,5 +100,3 @@ Please feel free to contact me directly with any questions, comments, or enhance
 **Fred Lackey**  
 **[fred.lackey@gmail.com](mailto://fred.lackey@gmail.com)**  
 **[http://fredlackey.com](http://www.fredlackey.com)**  
-
-

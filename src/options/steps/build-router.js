@@ -36,7 +36,10 @@ const addPost = (curRouter, curPath, key, fn, opts) => {
   } else {
     curRouter.post(url, (req, res, next) => {
       try {
-        const result = fn(req.body);
+        const result = fn({
+          ...req.body,
+          ...req.query
+        });
         return res.json({ result })
       } catch (ex) {
         return next(ex)
