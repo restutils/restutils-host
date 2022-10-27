@@ -13,11 +13,11 @@ const getMainFilePath = libraryPath => {
     console.debug(ex);
     return null;
   }
-}
+};
 
 const getMainFromPackage = pkg => (
   path.resolve(
-    path.dirname(pkg.path), pkg.data.main))
+    path.dirname(pkg.path), pkg.data.main));
 
 const loadLibrary = opts => {
 
@@ -36,15 +36,15 @@ const loadLibrary = opts => {
 
     const pkgFile  = path.join(opts.path, 'package.json');
     if (!_.isFile(pkgFile)) {
-      return 'Missing package file.'
+      return 'Missing package file.';
     }
 
     const mainFile = getMainFilePath(pkgFile);
     if (!mainFile) {
-      return 'Main entry file could not be determined.'
+      return 'Main entry file could not be determined.';
     }
     if (!_.isFile(mainFile)) {
-      return 'Main entry file is missing.'
+      return 'Main entry file is missing.';
     }
     libraryPath = mainFile;
   }
@@ -70,14 +70,14 @@ const loadLibrary = opts => {
   }
 
   try {
-    opts.library = require(libraryPath)
+    opts.library = require(libraryPath);
   } catch (ex) {
     console.debug(ex);
     errors.push('Exception while loading library file.');
   }
 
   if (!_.isObject(opts.library)) {
-    errors.push('Library file not loaded.')
+    errors.push('Library file not loaded.');
   }
 
   return errors;

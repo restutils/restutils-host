@@ -16,7 +16,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "CLI 00 - Print Markdown",
+      "name": "00 - Print Markdown",
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}/src/command.js",
       "args": ["--cli-markdown"]
@@ -24,7 +24,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "CLI 00 - Print Help",
+      "name": "00 - Print Help",
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}/src/command.js",
       "args": ["--help"]
@@ -32,7 +32,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "CLI 01 - Empty",
+      "name": "01 - Empty",
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}/src/command.js",
       "args": []
@@ -40,7 +40,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "CLI 02 - File (Hello World)",
+      "name": "02 - Hello World",
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}/src/command.js",
       "args": [
@@ -51,7 +51,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "CLI 03 - File (Functions)",
+      "name": "03 - Functions",
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}/src/command.js",
       "args": [
@@ -62,7 +62,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "CLI 04 - File (Nested)",
+      "name": "04 - Child Objects",
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}/src/command.js",
       "args": [
@@ -73,7 +73,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "CLI 05 - File (Async)",
+      "name": "05 - Async",
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}/src/command.js",
       "args": [
@@ -84,7 +84,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "CLI 06 - File (Deep Nested)",
+      "name": "06 - Deep Nesting",
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}/src/command.js",
       "args": [
@@ -95,7 +95,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "CLI 07 - File (Excessive Nesting)",
+      "name": "07 - Excessive Nesting",
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}/src/command.js",
       "args": [
@@ -106,7 +106,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "CLI 08 - File (Limited Nesting)",
+      "name": "08 - Excessive Nesting Limited",
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}/src/command.js",
       "args": [
@@ -119,7 +119,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "CLI 09 - File (Dependencies)",
+      "name": "09 - Local Package",
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}/src/command.js",
       "args": [
@@ -130,7 +130,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "CLI 10 - File (Skip Dependencies)",
+      "name": "10 - Skip Dependencies",
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}/src/command.js",
       "args": [
@@ -143,7 +143,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "CLI 11 - NPM Package",
+      "name": "11 - NPM Package",
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}/src/command.js",
       "args": [
@@ -154,7 +154,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "CLI 12 - Git Repo",
+      "name": "12 - Git Repo",
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}/src/command.js",
       "args": [
@@ -165,7 +165,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "CLI 13 - Database",
+      "name": "13 - Database",
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}/src/command.js",
       "args": [
@@ -176,7 +176,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "CLI 14 - Params",
+      "name": "14 - Params",
       "skipFiles": ["<node_internals>/**"],
       "program": "${workspaceFolder}/src/command.js",
       "args": [

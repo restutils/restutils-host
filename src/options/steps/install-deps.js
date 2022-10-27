@@ -1,5 +1,5 @@
 const _    = require('../../utils');
-const proc = require("child_process");
+const proc = require('child_process');
 const path = require('path');
 
 const install = (folderPath) => {
@@ -9,10 +9,10 @@ const install = (folderPath) => {
         err,
         stdOut,
         stdErr
-      })
-    })
-  })
-}
+      });
+    });
+  });
+};
 
 const installDependencies = async (opts) => {
 

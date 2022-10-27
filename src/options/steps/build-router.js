@@ -6,6 +6,20 @@ const pkg     = require('../../../package.json');
 // const NODE_ENV = 'dev';
 const EMPTY_OK = true;
 
+const toData = ({ body, query }) => {
+  if (_.isObject(body)) {
+    const result = {
+      ...body,
+      ...query
+    }
+    const count = Object.keys(result).length;
+    return count > 0 ? result : undefined;
+  }
+  if (_.isValidString(body) || _.isNumber(body) || _.isValidArray(body, EMPTY_OK)) {
+    return body;
+  }
+  return undefined
+}
 const toUrl = (curPath, key) => {
 
   const isEnum = (key === key.toUpperCase());
@@ -23,11 +37,10 @@ const addGet = (curRouter, curPath, key, value, opts) => {
 const addPost = (curRouter, curPath, key, fn, opts) => {
   const url = toUrl(curPath, key);
   opts.routes.push({ type: 'POST', url });
-
   if (_.isAsync(fn)) {
     curRouter.post(url, async (req, res, next) => {
       try {
-        const result = await fn(req.body);
+        const result = await fn(toData(req));
         return res.json({ result })
       } catch (ex) {
         return next(ex)
@@ -36,10 +49,7 @@ const addPost = (curRouter, curPath, key, fn, opts) => {
   } else {
     curRouter.post(url, (req, res, next) => {
       try {
-        const result = fn({
-          ...req.body,
-          ...req.query
-        });
+        const result = fn(toData(req));
         return res.json({ result })
       } catch (ex) {
         return next(ex)

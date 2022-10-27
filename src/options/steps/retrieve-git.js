@@ -1,6 +1,5 @@
 const download = require('download-git-repo');
 const path     = require('path');
-const proc     = require("child_process");
 const _        = require('../../utils');
 
 const WORK_FOLDER = 'work';

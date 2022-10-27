@@ -1,58 +1,46 @@
 const { MongoClient, ObjectId } = require("mongodb");
 
-const uri = 'mongodb+srv://user:pass@cluster0.abc123.mongodb.net/?retryWrites=true&w=majority';
+const DB_USER         = 'demouser';
+const DB_PASS         = 'iF8lEvieM4Mo3Q0n';
+const DB_HOST         = 'cluster0.hz5hk.mongodb.net';
+const DB_NAME         = 'restutils-demo';
+const COLLECTION_NAME = 'widgets';
 
-const client = new MongoClient(uri);
+const uri = `mongodb+srv://${DB_USER}:${DB_PASS}@${DB_HOST}/?retryWrites=true&w=majority`;
 
-const createMovie = async (data) => {
-  try {
-    const database = client.db('test');
-    const movies   = database.collection('movies');
-    const result   = await movies.insertOne(data);
-    return result
-  } finally {
-    await client.close();
-  }
+const client   = new MongoClient(uri);
+const database = client.db(DB_NAME);
+
+const createItem = async (data) => {
+  const items  = database.collection(COLLECTION_NAME);
+  const result = await items.insertOne(data);
+  return result
 }
-const findMovie = async (data) => {
-  try {
-    const database = client.db('test');
-    const movies   = database.collection('movies');
-    const result   = await movies.findOne(data);
-    return result;
-  } finally {
-    await client.close();
-  }
+const findItem = async (data) => {
+  const database = client.db(DB_NAME);
+  const items    = database.collection(COLLECTION_NAME);
+  const result   = await items.findOne(data);
+  return result;
 }
-const findMovieById = async (data) => {
-  try {
-    const database = client.db('test');
-    const movies   = database.collection('movies');
-    const result   = await movies.findOne({
-      _id: ObjectId(data.id)
-    });
-    return result;
-  } finally {
-    await client.close();
-  }
+const findItemById = async (data) => {
+  const database = client.db(DB_NAME);
+  const items    = database.collection(COLLECTION_NAME);
+  const result   = await items.findOne({
+    _id: ObjectId(data.id)
+  });
+  return result;
 }
-const getMovies = async () => {
-  try {
-    const database = client.db('test');
-    const movies   = database.collection('movies');
-    const cursor   = await movies.find();
-    const result   = await cursor.toArray();
-    return result;
-  } catch (ex) {
-    console.error(ex);
-  } finally {
-    await client.close();
-  }
+const getItems = async () => {
+  const database = client.db(DB_NAME);
+  const items    = database.collection(COLLECTION_NAME);
+  const cursor   = await items.find();
+  const result   = await cursor.toArray();
+  return result;
 }
 
 module.exports = {
-  createMovie,
-  findMovie,
-  findMovieById,
-  getMovies
+  createItem,
+  findItem,
+  findItemById,
+  getItems
 }

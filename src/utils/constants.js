@@ -9,4 +9,4 @@ const OPTION_TYPE = {
 
 module.exports = {
   OPTION_TYPE
-}
+};

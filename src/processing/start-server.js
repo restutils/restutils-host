@@ -12,19 +12,19 @@ const startServer = (opts) => {
     app.use(cors());
   }
 
-  const jsonOpts = { extended: false };
+  const jsonOptions = { extended: false };
   if (opts.limit) {
     // app.use(express.json({ limit: '50mb' }));
-    jsonOpts.limit = opts.limit
+    jsonOptions.limit = opts.limit;
   }
-  app.use(express.json(jsonOpts));
+  app.use(express.json(jsonOptions));
 
-  const jsonOptsExtended = { extended: false };
+  const jsonOptionsExtended = { extended: false };
   if (opts.limit) {
     // app.use(express.urlencoded({ limit: '50mb', extended: false }));
-    jsonOptions.limit = opts.limit
+    jsonOptionsExtended.limit = opts.limit;
   }
-  app.use(express.urlencoded(jsonOptsExtended));
+  app.use(express.urlencoded(jsonOptionsExtended));
 
   app.use(opts.router);
   
@@ -42,7 +42,7 @@ const startServer = (opts) => {
     // console.info(`NOTE: ${NODE_NOTE}`);
 
     opts.routes.forEach(route => {
-      console.log(`${route.type.padEnd(5, ' ')}:`, route.url)
+      console.log(`${route.type.padEnd(5, ' ')}:`, route.url);
     });
   });
   

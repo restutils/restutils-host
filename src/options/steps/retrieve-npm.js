@@ -1,5 +1,5 @@
 const path = require('path');
-const proc = require("child_process");
+const proc = require('child_process');
 const _    = require('../../utils');
 
 const WORK_FOLDER = 'work';
@@ -28,9 +28,9 @@ const initProject = (workPath) => {
     keywords: [],
     author  : '',
     license : 'UNLICENSED'
-  }
+  };
   return _.writeFile(pkgPath, JSON.stringify(pkg, null, 2));
-}
+};
 const install = (workPath, name, version) => {
   return new Promise((resolve, reject) => {
     proc.exec(`cd ${workPath} && npm i --silent ${name}@'${version}'`, (err, stdOut, stdErr) => {
@@ -38,10 +38,10 @@ const install = (workPath, name, version) => {
         err,
         stdOut,
         stdErr
-      })
-    })
-  })
-}
+      });
+    });
+  });
+};
 const getPackage = async(workPath, name, version) => {
 
   await install(workPath, name, version);
@@ -57,7 +57,7 @@ const getPackage = async(workPath, name, version) => {
   const pkg     = _.parseJson(pkgData);
 
   if (!pkg || !pkg.name) {
-    console.debug('Invalid package:', name, ver);
+    console.debug('Invalid package:', name, version);
     _.deleteDirectory(workPath);
     return null;
   }
@@ -66,7 +66,7 @@ const getPackage = async(workPath, name, version) => {
     path: pkgPath,
     data: pkg
   };
-}
+};
 
 const toName = name => {
   let result = _.removePrefix(name, '@');
@@ -77,7 +77,7 @@ const toName = name => {
         version: (result.length === 2) ? (result[1] || 'latest') : 'latest'
       };
   return result;
-}
+};
 
 const retrieveNpm = async (opts) => {
 
@@ -89,16 +89,16 @@ const retrieveNpm = async (opts) => {
   const workPath = path.join(opts.root, WORK_FOLDER, pkgName.name, pkgName.version);
 
   if (!initProject(workPath)) {
-    return ['Failure initializing work project.']
+    return ['Failure initializing work project.'];
   }
 
   const pkg = await getPackage(workPath, pkgName.name, pkgName.version); 
   if (!pkg) {
-    return ['Failure installing package.']
+    return ['Failure installing package.'];
   }
 
   // Set path for the loadLibrary call
-  opts.pkg  = { ...pkg };
+  opts.pkg  = pkg;
   opts.path = workPath;
 
   return [];
