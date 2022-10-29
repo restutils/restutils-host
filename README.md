@@ -1,3 +1,5 @@
+![RESTUtils Logo](./docs/images/logo-wide.png)
+
 # RESTUtils Host (`restutils-host`)
 
 Instantly convert any JavaScript library into a web-based API!
