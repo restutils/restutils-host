@@ -101,7 +101,7 @@ When using the `--repo` option, and pulling directly from a hosted Git repositor
 
 ## Demo
 
-[![RESTUtils Host Demo](./docs/images/thumb.jpg)](https://www.youtube.com/watch?v=gfu1ubVC3gg)
+[![RESTUtils Host Demo](./docs/images/thumb.png)](https://www.youtube.com/watch?v=gfu1ubVC3gg)
 
 ## Contact
 
