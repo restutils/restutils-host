@@ -99,6 +99,10 @@ Then just tell your IDE to attach to the process.  In VSCode this is done by cre
 
 When using the `--repo` option, and pulling directly from a hosted Git repository, the underlying `git clone` process may randomly fail with `status 128.`  Online docs have not been helpful (yet).  More than likely there is some async process burried in there that should be allowed to complete before the process returns.  Repeating the same command a few seconds later works successfully.
 
+## Demo
+
+[![RESTUtils Host Demo](./docs/images/thumb.jpg)](https://www.youtube.com/watch?v=gfu1ubVC3gg)
+
 ## Contact
 
 Please feel free to contact me directly with any questions, comments, or enhancement requests:
