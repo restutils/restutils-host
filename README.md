@@ -79,6 +79,22 @@ Or, if you're using it in the `scripts` section of your `package.json` file you 
 }
 ```
 
+And, maybe even kick it up a notch by tossing Nodemon into the mix...
+
+```bash
+{
+  "name"       : "data-api-lib",
+  "version"    : "0.0.0",
+  "description": "My Data API Library",
+  "scripts"    : {
+    "debug": "npx -node-options=--inspect restutils-host@latest --path ${PWD}/index.js",
+    "dev"  : "npx restutils-host@latest --path ${PWD}/index.js",
+    "watch"       : "nodemon --exec \"npm run dev\"",
+    "watch:debug" : "nodemon --exec \"npm run debug\"",
+  }
+}
+```
+
 ## Parameters
 
 | Name      | Description                    | Type            | Default |
