@@ -184,6 +184,42 @@
         "${workspaceFolder}/samples/params/index.js"
       ]
     },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "14 - No Caps",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/src/command.js",
+      "args": [
+        "--path",
+        "${workspaceFolder}/samples/package-json",
+        "--caps",
+        "false"
+      ]
+    },
 
+
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "TEST - Circular References",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/src/command.js",
+      "args": [
+        "--path",
+        "${workspaceFolder}/tests/circular/index.js"
+      ]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "TEST - Duplicate Routes",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/src/command.js",
+      "args": [
+        "--path",
+        "${workspaceFolder}/tests/duplicate-routes/index.js"
+      ]
+    },
   ]
 }

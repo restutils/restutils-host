@@ -20,22 +20,28 @@ const toData = ({ body, query }) => {
   }
   return undefined
 }
-const toUrl = (curPath, key) => {
+const toUrl = (curPath, key, opts) => {
 
-  const isEnum = (key === key.toUpperCase());
+  const isEnum = opts.caps && (key === key.toUpperCase());
   const newKey = isEnum ? key : _.toSnakeCase(key);
 
   return [curPath, newKey.split('_').join('-')].join('/');
 }
 const addGet = (curRouter, curPath, key, value, opts) => {
-  const url = toUrl(curPath, key);
+  const url = toUrl(curPath, key, opts);
+  if (opts.routes.some(x => (x && x.url === url))) {
+    return;
+  }
   opts.routes.push({ type: 'GET', url });
   curRouter.get(url, (req, res) => {
-    return res.json({ value });
+    return res.json({ result: value });
   })
 }
 const addPost = (curRouter, curPath, key, fn, opts) => {
-  const url = toUrl(curPath, key);
+  const url = toUrl(curPath, key, opts);
+  if (opts.routes.some(x => (x && x.url === url))) {
+    return;
+  }
   opts.routes.push({ type: 'POST', url });
   if (_.isAsync(fn)) {
     curRouter.post(url, async (req, res, next) => {
@@ -59,7 +65,10 @@ const addPost = (curRouter, curPath, key, fn, opts) => {
 
 }
 const addRouter = (curRouter, curPath, key, obj, opts) => {
-  const url = toUrl(curPath, key);
+  const url = toUrl(curPath, key, opts);
+  if (opts.routes.some(x => (x && x.url === url))) {
+    return;
+  }
   opts.routes.push({ type: 'ROUTE', url });
   const childRouter = express.Router();
   buildRouter(childRouter, url, obj, opts);
@@ -88,7 +97,8 @@ const buildRouter = (curRouter, curPath, obj, opts) => {
     addPost(curRouter, curPath, key, obj[key], opts);
   })
 
-  objects.forEach(key => {
+  objects.filter(x => (x && obj[x] && !opts.done.includes(obj[x]))).forEach(key => {
+    opts.done.push(obj[key]);
     addRouter(curRouter, curPath, key, obj[key], opts);
   })
 
@@ -112,6 +122,7 @@ const buildRouterFromLibrary = opts => {
   }
 
   opts.level  = 0;
+  opts.done   = [];
   opts.routes = [];
   opts.router = express.Router();
   opts.router.get(opts.base, (req, res) => {
@@ -133,8 +144,8 @@ const buildRouterFromLibrary = opts => {
   }
 
   // Larger status route
-  if (!opts.routes.some(x => (x && x.url === toUrl(opts.base, 'status')))) {
-    opts.router.get(toUrl(opts.base, 'status'), (req, res) => {
+  if (!opts.routes.some(x => (x && x.url === toUrl(opts.base, 'status', opts)))) {
+    opts.router.get(toUrl(opts.base, 'status', opts), (req, res) => {
       return res.json({
         ...response,
         routes: opts.routes
