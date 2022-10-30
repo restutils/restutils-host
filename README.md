@@ -73,8 +73,8 @@ Or, if you're using it in the `scripts` section of your `package.json` file you 
   "version"    : "0.0.0",
   "description": "My Data API Library",
   "scripts"    : {
-    "debug": "npx -node-options=--inspect restutils-host@latest --depth 1 --path ${PWD}/index.js",
-    "dev"  : "npx restutils-host@latest --depth 1 --path ${PWD}/index.js"
+    "debug": "npx -node-options=--inspect restutils-host@latest --path ${PWD}/index.js",
+    "dev"  : "npx restutils-host@latest --path ${PWD}/index.js"
   }
 }
 ```
