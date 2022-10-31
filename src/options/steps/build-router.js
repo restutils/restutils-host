@@ -2,8 +2,6 @@ const express = require('express');
 const _       = require('../../utils');
 const pkg     = require('../../../package.json');
 
-// const { NODE_ENV = '' } = process.env;
-// const NODE_ENV = 'dev';
 const EMPTY_OK = true;
 
 const toData = ({ body, query }) => {
@@ -23,9 +21,27 @@ const toData = ({ body, query }) => {
 const toUrl = (curPath, key, opts) => {
 
   const isEnum = opts.caps && (key === key.toUpperCase());
-  const newKey = isEnum ? key : _.toSnakeCase(key);
+  let newKey = isEnum ? key : _.toSnakeCase(key);
+  if (key.startsWith('.')) {
+    newKey = `.${newKey}`
+  }
 
   return [curPath, newKey.split('_').join('-')].join('/');
+}
+const buildRouteDefintion = opts => {
+
+  let obj;
+
+  opts.routes.filter(x => (x && x.type !== 'ROUTE')).forEach(route => {
+    obj = opts.def;
+    const keys = route.url.split('/').filter(_.isValidString);
+    for (let i = 0; i < keys.length - 1; i += 1) {
+      const key = keys[i];
+      obj[key] = obj[key] || {};
+      obj = obj[key];
+    }
+    obj[keys[keys.length - 1]] = route.type;
+  })
 }
 const addGet = (curRouter, curPath, key, value, opts) => {
   const url = toUrl(curPath, key, opts);
@@ -125,6 +141,7 @@ const buildRouterFromLibrary = opts => {
   opts.done   = [];
   opts.routes = [];
   opts.router = express.Router();
+  opts.def    = {};
   opts.router.get(opts.base, (req, res) => {
     return res.json(response);
   });
@@ -150,6 +167,15 @@ const buildRouterFromLibrary = opts => {
         ...response,
         routes: opts.routes
       });
+    });
+  }
+
+  // Publish Definition route
+  if (_.isValidString(opts.publish)) {
+    buildRouteDefintion(opts);
+    const url = toUrl(opts.base, opts.publish, opts);
+    opts.router.get(url, (req, res) => {
+      return res.json(opts.def);
     });
   }
 
