@@ -6,3 +6,7 @@
 * Return `result` for primatives instead of `value`.
 * Protect against duplicate route names.
 * Add option to convert ALL_CAPS names for properties.
+
+## v0.5.0 (20221031)
+
+* Add `publish` option to publish calculated route definition.

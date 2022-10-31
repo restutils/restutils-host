@@ -10,6 +10,7 @@ module.exports = {
   repo   : { type: STRING,  name: 'URL to hosted Git repo',         default: null },
   depth  : { type: NUMBER,  name: 'Maximum levels to recurse',      default: null },
   base   : { type: STRING,  name: 'Base path of listener',          default: '' },
+  publish: { type: STRING,  name: 'Route to publish definition.',   default: '.restutils' },
   caps   : { type: BOOLEAN, name: 'Allow all-caps for names.',      default: true },
   cors   : { type: BOOLEAN, name: 'Enable CORS',                    default: true },
   port   : { type: NUMBER,  name: 'Port for incoming requests',     default: '3000' },
