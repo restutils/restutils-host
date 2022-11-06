@@ -11,7 +11,8 @@
 
 * Add `publish` option to publish calculated route definition.
 
-## v0.6.0-v0.6.1 (20221106)
+## v0.6.0-v0.7.0 (20221106)
 
 * Move utils to a common [RESTUtils Helpers](https://www.npmjs.com/package/restutils-helpers) package.
 * Send route info to console in non-prod environments.
+* Add wildcard routes ability

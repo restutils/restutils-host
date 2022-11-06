@@ -37,6 +37,14 @@ Remember Rule #1 from above?  How the body of each request is passed in to your 
 
 ![Combined Parameters](./docs/images/merged-params.png)
 
+## Wildcard Routes
+
+Maybe you don't want to worry about the incoming path structure at all?  That's fine.  By using a `[wildcard].js` file and `handler` function, any route you invent after the fact becomes a valid.  Essentially, this means `/myroute` and `/my/really/long/route/name` will be dumped into the same function if you so desire.
+
+![Wildcard Routes](./docs/images/wildcards.png)
+
+Remember Rule #1 from above?
+
 ## Installation
 
 It's best to run from `npx` but it can be installed globally...

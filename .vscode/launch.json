@@ -197,6 +197,17 @@
         "false"
       ]
     },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "15 - Wildcard",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/src/command.js",
+      "args": [
+        "--path",
+        "${workspaceFolder}/samples/wildcard/index.js"
+      ]
+    },
 
 
     {

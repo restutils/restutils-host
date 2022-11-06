@@ -1,24 +1,16 @@
-const express = require('express');
-const _       = require('restutils-helpers');
-const pkg     = require('../../../package.json');
+const express    = require('express');
+const { locate } = require('func-loc');
+const _          = require('restutils-helpers');
+const pkg        = require('../../../package.json');
 
 const EMPTY_OK = true;
 const STRICT_ERRORS = true;
 
-const toData = ({ body, query }) => {
-  if (_.isObject(body)) {
-    const result = {
-      ...body,
-      ...query
-    }
-    const count = Object.keys(result).length;
-    return count > 0 ? result : undefined;
-  }
-  if (_.isValidString(body) || _.isNumber(body) || _.isValidArray(body, EMPTY_OK)) {
-    return body;
-  }
-  return undefined
-}
+const toData = (req) => ({
+  ...req.body,
+  ...req.query,
+  _path: req.baseUrl.split('/').filter(_.isValidString)
+});
 const toUrl = (curPath, key, opts) => {
 
   const isEnum = opts.caps && (key === key.toUpperCase());
@@ -28,6 +20,39 @@ const toUrl = (curPath, key, opts) => {
   }
 
   return [curPath, newKey.split('_').join('-')].join('/');
+}
+const getBaseKey = async (fn) => {
+
+  let location;
+
+  if (typeof fn !== 'function') { 
+    return null; 
+  }
+  if (fn.name !== 'handler') {
+    return null; 
+  }
+
+  try {
+    location = await locate(fn);
+  } catch (e) {
+    return null;
+  }
+
+  if (!location || !location.path) {
+    return null;
+  }
+
+  let base = _.getFileName(location.path, false) || '';
+  if (!base.startsWith('[') || !base.endsWith(']')) {
+    return null;
+  }
+
+  base = _.removePrefix(base, '[');
+  base = _.removeSuffix(base, ']');
+  base = _.removePrefix(base, '.');
+  base = _.removeSuffix(base, '.');
+
+  return _.isAlphanumeric(base) ? base : null;
 }
 const buildRouteDefintion = opts => {
 
@@ -89,6 +114,41 @@ const addPost = (curRouter, curPath, key, fn, opts) => {
   }
 
 }
+const addCachall = (curRouter, curPath, key, fn, opts) => {
+  const url = toUrl(curPath, key, opts) + '/*';
+  if (opts.routes.some(x => (x && x.url === url))) {
+    return;
+  }
+  opts.routes.push({ type: 'ANY', url });
+  if (_.isAsync(fn)) {
+    curRouter.use(url, async (req, res, next) => {
+      try {
+        const result = await fn(toData(req));
+        if (_.errors.isError(result, STRICT_ERRORS)) {
+          return next(result);
+        } else {
+          return res.json({ result })
+        }
+      } catch (ex) {
+        return next(ex)
+      }
+    })       
+  } else {
+    curRouter.use(url, (req, res, next) => {
+      try {
+        const result = fn(toData(req));
+        if (_.errors.isError(result, STRICT_ERRORS)) {
+          return next(result);
+        } else {
+          return res.json({ result })
+        }
+      } catch (ex) {
+        return next(ex)
+      }
+    })
+  }
+
+}
 const addRouter = (curRouter, curPath, key, obj, opts) => {
   const url = toUrl(curPath, key, opts);
   if (opts.routes.some(x => (x && x.url === url))) {
@@ -118,8 +178,13 @@ const buildRouter = (curRouter, curPath, obj, opts) => {
     addGet(curRouter, curPath, key, obj[key], opts);
   });
 
-  functions.forEach(key => {
-    addPost(curRouter, curPath, key, obj[key], opts);
+  functions.forEach(async (key) => {
+    const baseKey = await getBaseKey(obj[key]);
+    if (key === 'handler' && baseKey) {
+      addCachall(curRouter, curPath, baseKey, obj[key], opts);
+    } else {
+      addPost(curRouter, curPath, key, obj[key], opts);
+    }
   })
 
   objects.filter(x => (x && obj[x] && !opts.done.includes(obj[x]))).forEach(key => {
