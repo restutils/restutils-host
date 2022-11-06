@@ -127,6 +127,12 @@ Then just tell your IDE to attach to the process.  In VSCode this is done by cre
 
 ![Debug Command](./docs/images/debugging-attach.png)
 
+## Production Recommendations
+
+### Disable Console Output
+
+Route information is output to the console in all non-production environments.  The goal is to allow developers the ability to see incoming payloads without having to attach the debugger.  This could be a security concern in some environments.  For example, within AWS the Cloud Watch service logs console information to permanent storage.  Should your APIs receive sensitive data you would not want this to be logged.  To disable the output in non-production enviornments, simply ensure the `NODE_ENV` enviornment variable is set to something beginning with the `prod` prefix (ie, `prod`, `production`, `prod-o-rama`, etc.).
+
 ## Known Limitations
 
 ### `Error: 'git clone' failed with status 128`

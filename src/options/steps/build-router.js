@@ -3,6 +3,7 @@ const _       = require('restutils-helpers');
 const pkg     = require('../../../package.json');
 
 const EMPTY_OK = true;
+const STRICT_ERRORS = true;
 
 const toData = ({ body, query }) => {
   if (_.isObject(body)) {
@@ -49,7 +50,7 @@ const addGet = (curRouter, curPath, key, value, opts) => {
     return;
   }
   opts.routes.push({ type: 'GET', url });
-  curRouter.get(url, (req, res) => {
+  curRouter.get(url, (req, res, next) => {
     return res.json({ result: value });
   })
 }
@@ -63,7 +64,11 @@ const addPost = (curRouter, curPath, key, fn, opts) => {
     curRouter.post(url, async (req, res, next) => {
       try {
         const result = await fn(toData(req));
-        return res.json({ result })
+        if (_.errors.isError(result, STRICT_ERRORS)) {
+          return next(result);
+        } else {
+          return res.json({ result })
+        }
       } catch (ex) {
         return next(ex)
       }
@@ -72,7 +77,11 @@ const addPost = (curRouter, curPath, key, fn, opts) => {
     curRouter.post(url, (req, res, next) => {
       try {
         const result = fn(toData(req));
-        return res.json({ result })
+        if (_.errors.isError(result, STRICT_ERRORS)) {
+          return next(result);
+        } else {
+          return res.json({ result })
+        }
       } catch (ex) {
         return next(ex)
       }
@@ -142,19 +151,28 @@ const buildRouterFromLibrary = opts => {
   opts.routes = [];
   opts.router = express.Router();
   opts.def    = {};
+  
+  opts.router.use((req, res, next) => {
+    if (!(process.env.NODE_ENV || '').toLowerCase().startsWith("prod")) {
+      console.log(
+        JSON.stringify(
+          {
+            url: `${req.method} ${req.url}`,
+            body: req.body,
+          },
+          null,
+          2
+        )
+      );
+    }
+    return next();
+  });
   opts.router.get(opts.base, (req, res) => {
     return res.json(response);
   });
-  
-  // if (NODE_ENV.startsWith('dev')) {
-  //   console.debug(' ');
-  // }
+
   
   buildRouter(opts.router, opts.base, opts.library, opts)
-
-  // if (NODE_ENV.startsWith('dev')) {
-  //   console.debug(' ');
-  // }
 
   if (opts.routes.length === 0) {
     return ['Nothing to do.'];
