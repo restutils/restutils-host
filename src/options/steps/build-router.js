@@ -1,5 +1,5 @@
 const express = require('express');
-const _       = require('../../utils');
+const _       = require('restutils-helpers');
 const pkg     = require('../../../package.json');
 
 const EMPTY_OK = true;

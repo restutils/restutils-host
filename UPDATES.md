@@ -10,3 +10,7 @@
 ## v0.5.0 (20221031)
 
 * Add `publish` option to publish calculated route definition.
+
+## v0.6.0 (20221106)
+
+* Move utils to a common [RESTUtils Helpers](https://www.npmjs.com/package/restutils-helpers) package.

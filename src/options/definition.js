@@ -1,6 +1,7 @@
-const _ = require('../utils');
+const _ = require('restutils-helpers');
+const c = require('./constants');
 
-const { BOOLEAN, NUMBER, STRING, ARRAY, PATH, FUNCTION } = _.constants.OPTION_TYPE;
+const { BOOLEAN, NUMBER, STRING, ARRAY, PATH, FUNCTION } = c.OPTION_TYPE;
 
 module.exports = {
 

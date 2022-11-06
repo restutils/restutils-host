@@ -1,4 +1,4 @@
-const _ = require('../../utils');
+const _ = require('restutils-helpers');
 const path = require('path');
 const def = require('../definition');
 

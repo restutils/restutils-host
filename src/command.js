@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const _           = require('./utils');
+const _           = require('restutils-helpers');
 const options     = require('./options');
 const { processOptions } = require('./index');
 

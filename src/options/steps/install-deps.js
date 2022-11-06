@@ -1,4 +1,4 @@
-const _    = require('../../utils');
+const _    = require('restutils-helpers');
 const proc = require('child_process');
 const path = require('path');
 

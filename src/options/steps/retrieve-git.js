@@ -1,6 +1,6 @@
 const download = require('download-git-repo');
 const path     = require('path');
-const _        = require('../../utils');
+const _        = require('restutils-helpers');
 
 const WORK_FOLDER = 'work';
 

@@ -1,7 +1,8 @@
-const _ = require('../../utils');
+const _ = require('restutils-helpers');
+const c = require('../constants');
 const def = require('../definition');
 
-const { BOOLEAN, NUMBER, STRING, ARRAY, PATH, FUNCTION } = _.constants.OPTION_TYPE;
+const { BOOLEAN, NUMBER, STRING, ARRAY, PATH, FUNCTION } = c.OPTION_TYPE;
 const COL_DELIM = '~';
 
 const toMarkdown = (forCli) => {

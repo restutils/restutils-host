@@ -1,4 +1,4 @@
-const _           = require('../utils');
+const _           = require('restutils-helpers');
 const formatters  = require('./formatters');
 const steps       = require('./steps');
 const validators  = require('./validators');

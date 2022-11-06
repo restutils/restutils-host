@@ -1,5 +1,5 @@
 const path       = require('path');
-const _          = require('./utils');
+const _          = require('restutils-helpers');
 const options    = require('./options');
 const processing = require('./processing');
 

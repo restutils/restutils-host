@@ -1,4 +1,4 @@
-const _ = require('../../utils');
+const _ = require('restutils-helpers');
 
 const depth = opts => {
   if (!_.isSet(opts.depth)) { return null; }
