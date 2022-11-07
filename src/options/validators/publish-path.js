@@ -7,7 +7,9 @@ const VALID_CHARS = `${PREFIX}${DELIMS}${CHARS}`;
 
 const publishDefinition = opts => {
 
-  if (!_.isValidString(opts.publish)) { return null; }
+  if (!_.isValidString(opts.publish)) { 
+    return null; 
+  }
 
   let clean = opts.publish
     .split('')

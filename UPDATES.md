@@ -16,3 +16,7 @@
 * Move utils to a common [RESTUtils Helpers](https://www.npmjs.com/package/restutils-helpers) package.
 * Send route info to console in non-prod environments.
 * Add wildcard routes ability
+
+## v0.7.1 (20221107)
+
+* Correct discovery route.  

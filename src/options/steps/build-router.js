@@ -149,17 +149,17 @@ const addCachall = (curRouter, curPath, key, fn, opts) => {
   }
 
 }
-const addRouter = (curRouter, curPath, key, obj, opts) => {
+const addRouter = async (curRouter, curPath, key, obj, opts) => {
   const url = toUrl(curPath, key, opts);
   if (opts.routes.some(x => (x && x.url === url))) {
     return;
   }
   opts.routes.push({ type: 'ROUTE', url });
   const childRouter = express.Router();
-  buildRouter(childRouter, url, obj, opts);
+  await buildRouter(childRouter, url, obj, opts);
   curRouter.use(childRouter);
 }
-const buildRouter = (curRouter, curPath, obj, opts) => {
+const buildRouter = async (curRouter, curPath, obj, opts) => {
 
   if (_.isNumber(opts.depth) && opts.level >= Number(opts.depth)) {
     return;
@@ -178,23 +178,26 @@ const buildRouter = (curRouter, curPath, obj, opts) => {
     addGet(curRouter, curPath, key, obj[key], opts);
   });
 
-  functions.forEach(async (key) => {
-    const baseKey = await getBaseKey(obj[key]);
-    if (key === 'handler' && baseKey) {
-      addCachall(curRouter, curPath, baseKey, obj[key], opts);
+  for (let i = 0; i < functions.length; i += 1) {
+    const fn = obj[functions[i]];
+    const baseKey = await getBaseKey(fn);
+    if (fn.name === 'handler' && baseKey) {
+      addCachall(curRouter, curPath, baseKey, fn, opts);
     } else {
-      addPost(curRouter, curPath, key, obj[key], opts);
+      addPost(curRouter, curPath, key, fn, opts);
     }
-  })
+  }
 
-  objects.filter(x => (x && obj[x] && !opts.done.includes(obj[x]))).forEach(key => {
+  const nextKeys = objects.filter(x => (x && obj[x] && !opts.done.includes(obj[x])));
+  for (let i = 0; i < nextKeys.length; i += 1) {
+    const key = nextKeys[i];
     opts.done.push(obj[key]);
-    addRouter(curRouter, curPath, key, obj[key], opts);
-  })
+    await addRouter(curRouter, curPath, key, obj[key], opts);
+  }
 
 }
 
-const buildRouterFromLibrary = opts => {
+const buildRouterFromLibrary = async (opts) => {
 
   if (!opts.library) {
     return [];
@@ -232,12 +235,12 @@ const buildRouterFromLibrary = opts => {
     }
     return next();
   });
+
+  await buildRouter(opts.router, opts.base, opts.library, opts)
+
   opts.router.get(opts.base, (req, res) => {
     return res.json(response);
   });
-
-  
-  buildRouter(opts.router, opts.base, opts.library, opts)
 
   if (opts.routes.length === 0) {
     return ['Nothing to do.'];
