@@ -1,0 +1,40 @@
+{
+  "name": "flowroute-lib",
+  "version": "0.0.0",
+  "description": "SpamJammer Flowroute API Library",
+  "scripts": {
+    "debug": "npx -node-options=--inspect restutils-host@latest --path ${PWD}/index.js",
+    "dev": "npx restutils-host@latest --path ${PWD}/index.js",
+    "dev:local": "npx restutils-host@latest --port 3005 --path ${PWD}/index.js",
+    "watch": "nodemon --exec \"npm run dev\"",
+    "watch:debug": "nodemon --exec \"npm run debug\"",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "db:generate": "npx prisma generate",
+    "db:pull": "npx prisma db pull && npx prisma generate",
+    "db:studio": "npx prisma studio",
+    "db:migrate:create": "npx prisma migrate dev --name init",
+    "db:migrate:reset": "npx prisma migrate reset",
+    "db:migrate:deploy": "npx prisma migrate deploy",
+    "db:seed": "node ./prisma/seed.js"
+  },
+  "keywords": [],
+  "author": {
+    "email": "fred.lackey@gmail.com",
+    "name": "Fred Lackey",
+    "url": "http://fredlackey.com"
+  },
+  "license": "UNLICENSED",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "eslint": "^8.26.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "restutils-helpers": "^0.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.26.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-import": "^2.26.0",
+    "nodemon": "^2.0.20"
+  }
+}
