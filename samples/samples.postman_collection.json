@@ -1403,13 +1403,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{HOST}}/provider/receive/level-a/level-b/level-c?fiz=buz",
+							"raw": "{{HOST}}/receive/provider/level-a/level-b/level-c?fiz=buz",
 							"host": [
 								"{{HOST}}"
 							],
 							"path": [
-								"provider",
 								"receive",
+								"provider",
 								"level-a",
 								"level-b",
 								"level-c"
@@ -1439,13 +1439,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{HOST}}/provider/receive/level-a/level-b/level-c?fiz=buz",
+							"raw": "{{HOST}}/receive/provider/level-a/level-b/level-c?fiz=buz",
 							"host": [
 								"{{HOST}}"
 							],
 							"path": [
-								"provider",
 								"receive",
+								"provider",
 								"level-a",
 								"level-b",
 								"level-c"
