@@ -17,6 +17,6 @@
 * Send route info to console in non-prod environments.
 * Add wildcard routes ability
 
-## v0.7.1 (20221107)
+## v0.7.1-v0.7.2 (20221107)
 
 * Correct discovery route.  

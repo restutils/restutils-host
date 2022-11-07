@@ -179,9 +179,10 @@ const buildRouter = async (curRouter, curPath, obj, opts) => {
   });
 
   for (let i = 0; i < functions.length; i += 1) {
-    const fn = obj[functions[i]];
+    const key = functions[i];
+    const fn = obj[key];
     const baseKey = await getBaseKey(fn);
-    if (fn.name === 'handler' && baseKey) {
+    if (key === 'handler' && baseKey) {
       addCachall(curRouter, curPath, baseKey, fn, opts);
     } else {
       addPost(curRouter, curPath, key, fn, opts);

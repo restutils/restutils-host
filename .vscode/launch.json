@@ -232,5 +232,16 @@
         "${workspaceFolder}/tests/duplicate-routes/index.js"
       ]
     },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "TEST - Wildcard Discovery",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/src/command.js",
+      "args": [
+        "--path",
+        "${workspaceFolder}/tests/wildcard-discovery/index.js"
+      ]
+    },
   ]
 }

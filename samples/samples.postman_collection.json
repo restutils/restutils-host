@@ -1,0 +1,1493 @@
+{
+	"info": {
+		"_postman_id": "c0e06f0b-925d-4953-ab9b-ce082d725b6f",
+		"name": "Samples",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "105665"
+	},
+	"item": [
+		{
+			"name": "02 - Hello World",
+			"item": [
+				{
+					"name": "Get Property",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/hello-world",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"hello-world"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "03 - Functions",
+			"item": [
+				{
+					"name": "Get Property",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/hello-world",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"hello-world"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Empty Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/do-something",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"do-something"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "04 - Child Objects",
+			"item": [
+				{
+					"name": "Helpers",
+					"item": [
+						{
+							"name": "Add",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"a\": 10,\n    \"b\": 20\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/helpers/add",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"helpers",
+										"add"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Subtract",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"a\": 10,\n    \"b\": 20\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/helpers/subtract",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"helpers",
+										"subtract"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get Property",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/hello-world",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"hello-world"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Empty Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/do-something",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"do-something"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "05 - Async",
+			"item": [
+				{
+					"name": "Upstream",
+					"item": [
+						{
+							"name": "Get Some",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/upstream/get-some",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"upstream",
+										"get-some"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get Property",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/hello-world",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"hello-world"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "06 - Deep Nesting",
+			"item": [
+				{
+					"name": "Helpers",
+					"item": [
+						{
+							"name": "More",
+							"item": [
+								{
+									"name": "Even More",
+									"item": [
+										{
+											"name": "Multiply",
+											"request": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"a\": 10,\n    \"b\": 20\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{HOST}}/helpers/more/even-more/multiply",
+													"host": [
+														"{{HOST}}"
+													],
+													"path": [
+														"helpers",
+														"more",
+														"even-more",
+														"multiply"
+													]
+												}
+											},
+											"response": []
+										},
+										{
+											"name": "Divide",
+											"request": {
+												"method": "POST",
+												"header": [],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n    \"a\": 10,\n    \"b\": 20\n}",
+													"options": {
+														"raw": {
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{HOST}}/helpers/more/even-more/divide",
+													"host": [
+														"{{HOST}}"
+													],
+													"path": [
+														"helpers",
+														"more",
+														"even-more",
+														"divide"
+													]
+												}
+											},
+											"response": []
+										}
+									]
+								},
+								{
+									"name": "Get Array",
+									"protocolProfileBehavior": {
+										"disableBodyPruning": true
+									},
+									"request": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{HOST}}/helpers/more/sample-array",
+											"host": [
+												"{{HOST}}"
+											],
+											"path": [
+												"helpers",
+												"more",
+												"sample-array"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Get Name",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/helpers/name",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"helpers",
+										"name"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get Property",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/hello-world",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"hello-world"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Empty Post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/do-something",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"do-something"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "07 - Excessive Nesting",
+			"item": [
+				{
+					"name": "a",
+					"item": [
+						{
+							"name": "a1",
+							"item": [
+								{
+									"name": "a1-a",
+									"item": [
+										{
+											"name": "Seriously",
+											"item": [
+												{
+													"name": "Get Message",
+													"protocolProfileBehavior": {
+														"disableBodyPruning": true
+													},
+													"request": {
+														"method": "GET",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{HOST}}/a/a1/a1-a/seriously/message",
+															"host": [
+																"{{HOST}}"
+															],
+															"path": [
+																"a",
+																"a1",
+																"a1-a",
+																"seriously",
+																"message"
+															]
+														}
+													},
+													"response": []
+												}
+											]
+										},
+										{
+											"name": "Yep",
+											"item": [
+												{
+													"name": "Get Message",
+													"protocolProfileBehavior": {
+														"disableBodyPruning": true
+													},
+													"request": {
+														"method": "GET",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{HOST}}/a/a1/a1-a/yep/message",
+															"host": [
+																"{{HOST}}"
+															],
+															"path": [
+																"a",
+																"a1",
+																"a1-a",
+																"yep",
+																"message"
+															]
+														}
+													},
+													"response": []
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "a2",
+							"item": [
+								{
+									"name": "a2-b",
+									"item": [
+										{
+											"name": "No",
+											"item": [
+												{
+													"name": "Get Message",
+													"protocolProfileBehavior": {
+														"disableBodyPruning": true
+													},
+													"request": {
+														"method": "GET",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{HOST}}/a/a2/a2-b/no/message",
+															"host": [
+																"{{HOST}}"
+															],
+															"path": [
+																"a",
+																"a2",
+																"a2-b",
+																"no",
+																"message"
+															]
+														}
+													},
+													"response": []
+												}
+											]
+										},
+										{
+											"name": "Joke",
+											"item": [
+												{
+													"name": "Get Message",
+													"protocolProfileBehavior": {
+														"disableBodyPruning": true
+													},
+													"request": {
+														"method": "GET",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{HOST}}/a/a2/a2-b/joke/message",
+															"host": [
+																"{{HOST}}"
+															],
+															"path": [
+																"a",
+																"a2",
+																"a2-b",
+																"joke",
+																"message"
+															]
+														}
+													},
+													"response": []
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Get Name",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/helpers/name",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"helpers",
+										"name"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get Property",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/hello-world",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"hello-world"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "08 - Excessive Nesting Limited",
+			"item": [
+				{
+					"name": "a",
+					"item": [
+						{
+							"name": "a1",
+							"item": [
+								{
+									"name": "a1-a",
+									"item": [
+										{
+											"name": "Seriously",
+											"item": [
+												{
+													"name": "Get Message",
+													"protocolProfileBehavior": {
+														"disableBodyPruning": true
+													},
+													"request": {
+														"method": "GET",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{HOST}}/a/a1/a1-a/seriously/message",
+															"host": [
+																"{{HOST}}"
+															],
+															"path": [
+																"a",
+																"a1",
+																"a1-a",
+																"seriously",
+																"message"
+															]
+														}
+													},
+													"response": []
+												}
+											]
+										},
+										{
+											"name": "Yep",
+											"item": [
+												{
+													"name": "Get Message",
+													"protocolProfileBehavior": {
+														"disableBodyPruning": true
+													},
+													"request": {
+														"method": "GET",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{HOST}}/a/a1/a1-a/yep/message",
+															"host": [
+																"{{HOST}}"
+															],
+															"path": [
+																"a",
+																"a1",
+																"a1-a",
+																"yep",
+																"message"
+															]
+														}
+													},
+													"response": []
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "a2",
+							"item": [
+								{
+									"name": "a2-b",
+									"item": [
+										{
+											"name": "No",
+											"item": [
+												{
+													"name": "Get Message",
+													"protocolProfileBehavior": {
+														"disableBodyPruning": true
+													},
+													"request": {
+														"method": "GET",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{HOST}}/a/a1/a1-a/seriously/message",
+															"host": [
+																"{{HOST}}"
+															],
+															"path": [
+																"a",
+																"a1",
+																"a1-a",
+																"seriously",
+																"message"
+															]
+														}
+													},
+													"response": []
+												}
+											]
+										},
+										{
+											"name": "Joke",
+											"item": [
+												{
+													"name": "Get Message",
+													"protocolProfileBehavior": {
+														"disableBodyPruning": true
+													},
+													"request": {
+														"method": "GET",
+														"header": [],
+														"body": {
+															"mode": "raw",
+															"raw": "",
+															"options": {
+																"raw": {
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{HOST}}/a/a2/a2-b/joke/message",
+															"host": [
+																"{{HOST}}"
+															],
+															"path": [
+																"a",
+																"a2",
+																"a2-b",
+																"joke",
+																"message"
+															]
+														}
+													},
+													"response": []
+												}
+											]
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Get Name",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/helpers/name",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"helpers",
+										"name"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Get Property",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/hello-world",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"hello-world"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "09 - Local Package",
+			"item": [
+				{
+					"name": "Empty UID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/EMPTY",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"EMPTY"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New UID",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/new-uid",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"new-uid"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "10 - Skip Dependencies",
+			"item": [
+				{
+					"name": "Empty UID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/EMPTY",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"EMPTY"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New UID",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/new-uid",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"new-uid"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "11 - NPM Package",
+			"item": []
+		},
+		{
+			"name": "12 - Git Repo",
+			"item": [
+				{
+					"name": "Get Code",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/constants/http/status/codes/NON-AUTHORITATIVE-INFORMATION",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"constants",
+								"http",
+								"status",
+								"codes",
+								"NON-AUTHORITATIVE-INFORMATION"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New UID",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/uuids/init-uid",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"uuids",
+								"init-uid"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Count Values",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    \"apple\",\n    \"pie\",\n    \"is\",\n    \"awesome\"\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/arrays/count",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"arrays",
+								"count"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "13 - Database",
+			"item": [
+				{
+					"name": "Create Item",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Another Widget\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/create-item",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"create-item"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Items",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\n    \"apple\",\n    \"pie\",\n    \"is\",\n    \"awesome\"\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/get-items",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"get-items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Item",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Your Widget\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/create-item",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"create-item"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "With Params",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Your Widget\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/create-item",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"create-item"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "14 - With Params",
+			"item": [
+				{
+					"name": "Get Property",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/hello-world",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"hello-world"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Body",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"member\": \"1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/with-params",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"with-params"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Querystring",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"member\": \"1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/with-params?fiz=buz",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"with-params"
+							],
+							"query": [
+								{
+									"key": "fiz",
+									"value": "buz"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "15 - Wildcard Route",
+			"item": [
+				{
+					"name": "Get Example",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/provider/receive/level-a/level-b/level-c?fiz=buz",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"provider",
+								"receive",
+								"level-a",
+								"level-b",
+								"level-c"
+							],
+							"query": [
+								{
+									"key": "fiz",
+									"value": "buz"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Example",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"member\": \"1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/provider/receive/level-a/level-b/level-c?fiz=buz",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"provider",
+								"receive",
+								"level-a",
+								"level-b",
+								"level-c"
+							],
+							"query": [
+								{
+									"key": "fiz",
+									"value": "buz"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "HOST",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+}
