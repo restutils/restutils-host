@@ -21,3 +21,7 @@
 
 * Correct discovery route.  
 * Improve error handling.  
+
+## v0.7.4 (20221108)
+
+* Add hosted file/repo/package console output.

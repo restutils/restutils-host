@@ -1,8 +1,24 @@
+const _ = require('restutils-helpers')
 const cors    = require('cors');
 const express = require('express');
+const path    = require('path');
 const pkg     = require('../../package.json');
 
 const TITLE = 'RESTUtils Host';
+
+const getDisplayName = opts => {
+  if (opts.repo) {
+    return `REPO : ${opts.repo}`;
+  } else if (opts.pkg) {
+    return `PACKAGE : ${opts.pkg.data.name} v${opts.pkg.data.version}`;
+  } else if (opts.path) {
+    const fileName = path.basename(opts.path);
+    const dirName = path.basename(path.dirname(opts.path));
+    return `FILE : ${[dirName, fileName].join('/')}`;
+  } else {
+    return `${TITLE} v${pkg.version}`;
+  }
+}
 
 const startServer = (opts) => {
 
@@ -35,6 +51,7 @@ const startServer = (opts) => {
   app.listen(opts.port, (err) => {
     if (err) { throw err; }
     console.info(`${TITLE} v${pkg.version}`);
+    console.info(`${getDisplayName(opts)}`);
     console.info(`PORT : ${opts.port}`);
     // console.info(`ENV : ${NODE_ENV}`);
     console.info(`BASE : ${opts.base || '(not set)'}`);
