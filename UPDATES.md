@@ -25,3 +25,7 @@
 ## v0.7.4 (20221108)
 
 * Add hosted file/repo/package console output.
+
+## v0.7.5 (20221121)
+
+* Improve error handling in non-prod environments.

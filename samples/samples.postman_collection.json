@@ -1386,7 +1386,7 @@
 			"name": "15 - Wildcard Route",
 			"item": [
 				{
-					"name": "Get Example",
+					"name": "Get Example (Shallow)",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1403,13 +1403,49 @@
 							}
 						},
 						"url": {
-							"raw": "{{HOST}}/receive/provider/level-a/level-b/level-c?fiz=buz",
+							"raw": "{{HOST}}/provider/receive?fiz=buz",
 							"host": [
 								"{{HOST}}"
 							],
 							"path": [
-								"receive",
 								"provider",
+								"receive"
+							],
+							"query": [
+								{
+									"key": "fiz",
+									"value": "buz"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Example (Complex)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/provider/receive/level-a/level-b/level-c?fiz=buz",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"provider",
+								"receive",
 								"level-a",
 								"level-b",
 								"level-c"
@@ -1425,7 +1461,7 @@
 					"response": []
 				},
 				{
-					"name": "Post Example",
+					"name": "Post Example (Shallow)",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -1439,13 +1475,47 @@
 							}
 						},
 						"url": {
-							"raw": "{{HOST}}/receive/provider/level-a/level-b/level-c?fiz=buz",
+							"raw": "{{HOST}}/provider/receive/?fiz=buz",
 							"host": [
 								"{{HOST}}"
 							],
 							"path": [
-								"receive",
 								"provider",
+								"receive",
+								""
+							],
+							"query": [
+								{
+									"key": "fiz",
+									"value": "buz"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Example (Complex)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"member\": \"1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/provider/receive/level-a/level-b/level-c?fiz=buz",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"provider",
+								"receive",
 								"level-a",
 								"level-b",
 								"level-c"

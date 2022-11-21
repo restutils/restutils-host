@@ -6,6 +6,16 @@ const pkg        = require('../../../package.json');
 const EMPTY_OK = true;
 const STRICT_ERRORS = true;
 
+const printError = err => {
+  if (!err || (process.env.NODE_ENV || '').toLowerCase().startsWith('prod')) { 
+    return;
+  }
+  if (err.stack || err.message) {
+    console.error(err.stack || err.message)
+  } else {
+    console.error(JSON.stringify(err, null, 2));
+  }
+}
 const toData = (req) => ({
   ...req.body,
   ...req.query,
@@ -268,16 +278,12 @@ const buildRouterFromLibrary = async (opts) => {
 
   // Error handling route
   opts.router.use((err, req, res, next) => {
-    const message = err.message || 'Something failed!';
-    if (!(process.env.NODE_ENV || '').toLowerCase().startsWith("prod")) {
-      console.error(JSON.stringify(err, null, 2));
-    } else {
-      console.error(message);
-    }
+    err.message = err.message || 'Something failed!';
+    printError(err);
     const status = (err.status && err.status.code)
       ? err.status.code
       : (err.status || 500)
-    return res.status(status).send({ error: message });
+    return res.status(status).send({ error: err.message });
   });
   
   return errors;
