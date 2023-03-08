@@ -17,6 +17,11 @@ module.exports = {
   port   : { type: NUMBER,  name: 'Port for incoming requests',     default: '3000' },
   install: { type: BOOLEAN, name: 'Install dependencies if needed', default: true },
 
+  jwtParam  : { type: STRING, name: 'Allowed name for JWT query param', default: 'jwt' },
+  jwtCookie : { type: STRING, name: 'Allowed name for JWT cookie', default: 'token' },
+  jwtHeader : { type: STRING, name: 'Allowed name for JWT header', default: 'authorization' },
+  jwtSecret : { type: STRING, name: 'Causes validation of JWT tokens', default: '' },
+
   // target      : { type: PATH, name: 'Desination Directory' },
 
   // recursive   : { type: BOOLEAN, default: true, name: 'Locate files recursively' },

@@ -1,6 +1,7 @@
 const basePath          = require('./base-path');
 const depth             = require('./depth');
 const environmentFile   = require('./environment-file');
+const jwtSecret         = require('./jwt-secret');
 const packageName       = require('./package-name');
 const packagePath       = require('./package-path');
 const packageRepo       = require('./package-repo');
@@ -12,6 +13,7 @@ module.exports = {
   basePath,
   depth,
   environmentFile,
+  jwtSecret,
   packageName,
   packagePath,
   packageRepo,

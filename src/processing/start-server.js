@@ -1,8 +1,9 @@
-const _ = require('restutils-helpers')
-const cors    = require('cors');
-const express = require('express');
-const path    = require('path');
-const pkg     = require('../../package.json');
+const _             = require('restutils-helpers')
+const cors          = require('cors');
+const express       = require('express');
+const cookieParser  = require('cookie-parser');
+const path          = require('path');
+const pkg           = require('../../package.json');
 
 const TITLE = 'RESTUtils Host';
 
@@ -35,6 +36,10 @@ const startServer = (opts) => {
   }
   app.use(express.json(jsonOptions));
 
+  if (_.isValidString(opts.jwtCookie) && _.isValidString(opts.jwtSecret)) {
+    app.use(cookieParser());
+  }
+
   const jsonOptionsExtended = { extended: false };
   if (opts.limit) {
     // app.use(express.urlencoded({ limit: '50mb', extended: false }));
@@ -55,6 +60,7 @@ const startServer = (opts) => {
     console.info(`PORT : ${opts.port}`);
     // console.info(`ENV : ${NODE_ENV}`);
     console.info(`BASE : ${opts.base || '(not set)'}`);
+    console.info(`JWT  : ${_.isValidString(opts.jwtSecret) ? '(enabled)' : '(not enabed)'}`);
     // console.info(`TEST: ${NODE_TEST}`);
     // console.info(`NOTE: ${NODE_NOTE}`);
 

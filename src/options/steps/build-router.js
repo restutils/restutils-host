@@ -5,6 +5,9 @@ const pkg        = require('../../../package.json');
 
 const EMPTY_OK = true;
 const STRICT_ERRORS = true;
+const JWT_METHODS = ['POST', 'PUT', 'DELETE', 'GET'];
+
+const { UNAUTHORIZED, FORBIDDEN } = _.HTTP.STATUS.PHRASES
 
 const printError = err => {
   if (!err || (process.env.NODE_ENV || '').toLowerCase().startsWith('prod')) { 
@@ -246,6 +249,40 @@ const buildRouterFromLibrary = async (opts) => {
     }
     return next();
   });
+
+  if ((opts.jwtParam || opts.jwtCookie || opts.jwtHeader) && opts.jwtSecret) {
+    opts.router.use((req, res, next) => {
+      if (!JWT_METHODS.includes(req.method.toUpperCase())) {
+        return next();
+      }
+      let rawJwt = _.express.getJwt({ req, 
+        secret: opts.jwtSecret, 
+        key   : opts.jwtParam, 
+        header: opts.jwtHeader, 
+        cookie: opts.jwtCookie
+      });
+      if (!rawJwt) {
+        return next();
+      }
+      rawJwt = _.removePrefix(rawJwt, 'Bearer').trim()
+      rawJwt = _.removePrefix(rawJwt, 'bearer').trim()
+      console.log('rawJwt', rawJwt);
+
+      opts.session = _.jwt.verify(rawJwt, opts.jwtSecret, true)
+      if (!opts.session) {
+        return res.status(UNAUTHORIZED.code).send({ error: 'Invalid token.' });
+      }
+
+      opts.session = _.jwt.verify(rawJwt, opts.jwtSecret, false)
+      if (!opts.session) {
+        return res.status(FORBIDDEN.code).send({ error: 'Expired token.' });
+      }
+
+      opts.session = _.jwt.toPayload(opts.session);
+
+      return next();
+    }) 
+  }
 
   await buildRouter(opts.router, opts.base, opts.library, opts)
 

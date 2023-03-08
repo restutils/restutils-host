@@ -29,3 +29,7 @@
 ## v0.7.5 (20221121)
 
 * Improve error handling in non-prod environments.
+
+## v0.8.0 (20230308)
+
+* Add incoming JWT support for cookies, headers, and querystring parameters.
