@@ -6,9 +6,17 @@ const pkg        = require('../../../package.json');
 const EMPTY_OK = true;
 const STRICT_ERRORS = true;
 const JWT_METHODS = ['POST', 'PUT', 'DELETE', 'GET'];
+const HEADER_PREFIX = 'RestUtils-'
 
 const { UNAUTHORIZED, FORBIDDEN } = _.HTTP.STATUS.PHRASES
 
+const getRestUtilsHeaders = req => {
+  const result = {};
+  Object.keys(req.headers).filter(key => (key && key.startsWith(HEADER_PREFIX) && req.headers[key])).forEach(key => {
+    result[key] = req.headers[key]
+  });
+  return result;
+}
 const printError = err => {
   if (!err || (process.env.NODE_ENV || '').toLowerCase().startsWith('prod')) { 
     return;
@@ -19,10 +27,12 @@ const printError = err => {
     console.error(JSON.stringify(err, null, 2));
   }
 }
-const toData = (req) => ({
+const toData = (req, opts) => ({
   ...req.body,
   ...req.query,
-  _path: req.baseUrl.split('/').filter(_.isValidString)
+  _path: req.baseUrl.split('/').filter(_.isValidString),
+  _session: opts.session,
+  _headers: getRestUtilsHeaders(req)
 });
 const toUrl = (curPath, key, opts) => {
 
@@ -101,7 +111,7 @@ const addPost = (curRouter, curPath, key, fn, opts) => {
   if (_.isAsync(fn)) {
     curRouter.post(url, async (req, res, next) => {
       try {
-        const result = await fn(toData(req));
+        const result = await fn(toData(req, opts));
         if (_.errors.isError(result, STRICT_ERRORS)) {
           return next(result);
         } else {
@@ -114,7 +124,7 @@ const addPost = (curRouter, curPath, key, fn, opts) => {
   } else {
     curRouter.post(url, (req, res, next) => {
       try {
-        const result = fn(toData(req));
+        const result = fn(toData(req, opts));
         if (_.errors.isError(result, STRICT_ERRORS)) {
           return next(result);
         } else {
@@ -136,7 +146,7 @@ const addCachall = (curRouter, curPath, key, fn, opts) => {
   if (_.isAsync(fn)) {
     curRouter.use(url, async (req, res, next) => {
       try {
-        const result = await fn(toData(req));
+        const result = await fn(toData(req, opts));
         if (_.errors.isError(result, STRICT_ERRORS)) {
           return next(result);
         } else {
@@ -149,7 +159,7 @@ const addCachall = (curRouter, curPath, key, fn, opts) => {
   } else {
     curRouter.use(url, (req, res, next) => {
       try {
-        const result = fn(toData(req));
+        const result = fn(toData(req, opts));
         if (_.errors.isError(result, STRICT_ERRORS)) {
           return next(result);
         } else {
@@ -235,6 +245,7 @@ const buildRouterFromLibrary = async (opts) => {
   opts.def    = {};
   
   opts.router.use((req, res, next) => {
+
     if (!(process.env.NODE_ENV || '').toLowerCase().startsWith("prod")) {
       console.log(
         JSON.stringify(
@@ -248,8 +259,13 @@ const buildRouterFromLibrary = async (opts) => {
       );
     }
     return next();
+
+    // Populate headers if missing
+    req.headers[`${HEADER_PREFIX}-Request`] = req.headers[`${HEADER_PREFIX}-Request`] || _.newUid();
+    req.headers[`${HEADER_PREFIX}-Time`]    = req.headers[`${HEADER_PREFIX}-Time`] || _.toEpoch();
   });
 
+  // Extract JWT session information
   if ((opts.jwtParam || opts.jwtCookie || opts.jwtHeader) && opts.jwtSecret) {
     opts.router.use((req, res, next) => {
       if (!JWT_METHODS.includes(req.method.toUpperCase())) {
@@ -269,12 +285,12 @@ const buildRouterFromLibrary = async (opts) => {
       console.log('rawJwt', rawJwt);
 
       opts.session = _.jwt.verify(rawJwt, opts.jwtSecret, true)
-      if (!opts.session) {
+      if (!opts.session && opts.jwtEnforce === true) {
         return res.status(UNAUTHORIZED.code).send({ error: 'Invalid token.' });
       }
 
       opts.session = _.jwt.verify(rawJwt, opts.jwtSecret, false)
-      if (!opts.session) {
+      if (!opts.session && opts.jwtEnforce === true) {
         return res.status(FORBIDDEN.code).send({ error: 'Expired token.' });
       }
 
