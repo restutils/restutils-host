@@ -17,11 +17,12 @@ module.exports = {
   port   : { type: NUMBER,  name: 'Port for incoming requests',     default: '3000' },
   install: { type: BOOLEAN, name: 'Install dependencies if needed', default: true },
 
-  jwtParam    : { type: STRING,  name: 'Allowed name for JWT query param', default: 'jwt' },
-  jwtCookie   : { type: STRING,  name: 'Allowed name for JWT cookie', default: 'token' },
-  jwtHeader   : { type: STRING,  name: 'Allowed name for JWT header', default: 'authorization' },
-  jwtSecret   : { type: STRING,  name: 'Causes validation of JWT tokens', default: '' },
-  jwtEnforce  : { type: BOOLEAN, name: 'Valid JWT is required', default: false },
+  jwtSecret   : { type: STRING,  name: 'Validate JWT if set',       default: '' },
+  jwtCookie   : { type: STRING,  name: 'JWT cookie name',           default: 'token' },
+  jwtHeader   : { type: STRING,  name: 'JWT header name',           default: 'authorization' },
+  jwtParam    : { type: STRING,  name: 'JWT query param name',      default: 'jwt' },
+  jwtExpired  : { type: BOOLEAN, name: 'Expired JWT allowed',       default: false },
+  jwtInvalid  : { type: BOOLEAN, name: 'Invalid JWT allowed',       default: false },
 
   // target      : { type: PATH, name: 'Desination Directory' },
 

@@ -105,23 +105,25 @@ And, maybe even kick it up a notch by tossing Nodemon into the mix...
 
 ## Parameters
 
-| Name        | Description                      | Type            | Default         |
-|-------------|----------------------------------|-----------------|-----------------|
-| `name`      | Package name in npmjs.org        | `string`        |                 |
-| `path`      | Full path to local package       | `string (path)` |                 |
-| `env`       | Full path to environment file    | `string (path)` |                 |
-| `repo`      | URL to hosted Git repo           | `string`        |                 |
-| `depth`     | Maximum levels to recurse        | `number`        | `null`          |
-| `base`      | Base path of listener            | `string`        |                 |
-| `publish`   | Route to publish definition.     | `string`        | `.restutils`    |
-| `caps`      | Allow all-caps for names.        | `boolean`       | `true`          |
-| `cors`      | Enable CORS                      | `boolean`       | `true`          |
-| `port`      | Port for incoming requests       | `number`        | `3000`          |
-| `install`   | Install dependencies if needed   | `boolean`       | `true`          |
-| `jwtParam`  | Allowed name for JWT query param | `string`        | `jwt`           |
-| `jwtCookie` | Allowed name for JWT cookie      | `string`        | `token`         |
-| `jwtHeader` | Allowed name for JWT header      | `string`        | `authorization` |
-| `jwtSecret` | Causes validation of JWT tokens  | `string`        |                 |
+| Name          | Description                    | Type            | Default         |
+|---------------|--------------------------------|-----------------|-----------------|
+| `name`        | Package name in npmjs.org      | `string`        |                 |
+| `path`        | Full path to local package     | `string (path)` |                 |
+| `env`         | Full path to environment file  | `string (path)` |                 |
+| `repo`        | URL to hosted Git repo         | `string`        |                 |
+| `depth`       | Maximum levels to recurse      | `number`        | `null`          |
+| `base`        | Base path of listener          | `string`        |                 |
+| `publish`     | Route to publish definition.   | `string`        | `.restutils`    |
+| `caps`        | Allow all-caps for names.      | `boolean`       | `true`          |
+| `cors`        | Enable CORS                    | `boolean`       | `true`          |
+| `port`        | Port for incoming requests     | `number`        | `3000`          |
+| `install`     | Install dependencies if needed | `boolean`       | `true`          |
+| `jwt-secret`  | Validate JWT if set            | `string`        |                 |
+| `jwt-cookie`  | JWT cookie name                | `string`        | `token`         |
+| `jwt-header`  | JWT header name                | `string`        | `authorization` |
+| `jwt-param`   | JWT query param name           | `string`        | `jwt`           |
+| `jwt-expired` | Expired JWT allowed            | `boolean`       | `false`         |
+| `jwt-invalid` | Invalid JWT allowed            | `boolean`       | `false`         |
 
 ## Debugging
 

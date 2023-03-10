@@ -3,20 +3,12 @@ const { locate } = require('func-loc');
 const _          = require('restutils-helpers');
 const pkg        = require('../../../package.json');
 
-const EMPTY_OK = true;
+const EMPTY_OK      = true;
 const STRICT_ERRORS = true;
-const JWT_METHODS = ['POST', 'PUT', 'DELETE', 'GET'];
 const HEADER_PREFIX = 'RestUtils-'
 
 const { UNAUTHORIZED, FORBIDDEN } = _.HTTP.STATUS.PHRASES
 
-const getRestUtilsHeaders = req => {
-  const result = {};
-  Object.keys(req.headers).filter(key => (key && key.startsWith(HEADER_PREFIX) && req.headers[key])).forEach(key => {
-    result[key] = req.headers[key]
-  });
-  return result;
-}
 const printError = err => {
   if (!err || (process.env.NODE_ENV || '').toLowerCase().startsWith('prod')) { 
     return;
@@ -27,13 +19,31 @@ const printError = err => {
     console.error(JSON.stringify(err, null, 2));
   }
 }
-const toData = (req, opts) => ({
-  ...req.body,
-  ...req.query,
-  _path: req.baseUrl.split('/').filter(_.isValidString),
-  _session: opts.session,
-  _headers: getRestUtilsHeaders(req)
-});
+const toData = (req, opts) => {
+
+  const data = {
+    ...req.body,
+    ...req.query,
+    _path: req.baseUrl.split('/').filter(_.isValidString)
+  }
+
+  if (opts.jwtParam && data[opts.jwtParam]) {
+    Reflect.deleteProperty(data, opts.jwtParam);
+  }
+
+  if (opts.session) {
+    data._session = {
+      ...opts.session
+    }
+  }
+
+  Object.keys(req.headers).filter(key => (key && key.startsWith(HEADER_PREFIX) && req.headers[key])).forEach(key => {
+    data._headers      = data._headers || {};
+    data._headers[key] = req.headers[key]
+  });
+
+  return data;
+};
 const toUrl = (curPath, key, opts) => {
 
   const isEnum = opts.caps && (key === key.toUpperCase());
@@ -258,47 +268,53 @@ const buildRouterFromLibrary = async (opts) => {
         )
       );
     }
-    return next();
 
     // Populate headers if missing
-    req.headers[`${HEADER_PREFIX}-Request`] = req.headers[`${HEADER_PREFIX}-Request`] || _.newUid();
-    req.headers[`${HEADER_PREFIX}-Time`]    = req.headers[`${HEADER_PREFIX}-Time`] || _.toEpoch();
-  });
+    req.headers[`${HEADER_PREFIX}Request`] = req.headers[`${HEADER_PREFIX}Request`] || _.newUid();
+    req.headers[`${HEADER_PREFIX}Time`]    = req.headers[`${HEADER_PREFIX}Time`] || _.toEpoch();
 
-  // Extract JWT session information
-  if ((opts.jwtParam || opts.jwtCookie || opts.jwtHeader) && opts.jwtSecret) {
-    opts.router.use((req, res, next) => {
-      if (!JWT_METHODS.includes(req.method.toUpperCase())) {
-        return next();
-      }
-      let rawJwt = _.express.getJwt({ req, 
-        secret: opts.jwtSecret, 
-        key   : opts.jwtParam, 
-        header: opts.jwtHeader, 
-        cookie: opts.jwtCookie
-      });
-      if (!rawJwt) {
-        return next();
-      }
-      rawJwt = _.removePrefix(rawJwt, 'Bearer').trim()
-      rawJwt = _.removePrefix(rawJwt, 'bearer').trim()
-      console.log('rawJwt', rawJwt);
-
-      opts.session = _.jwt.verify(rawJwt, opts.jwtSecret, true)
-      if (!opts.session && opts.jwtEnforce === true) {
-        return res.status(UNAUTHORIZED.code).send({ error: 'Invalid token.' });
-      }
-
-      opts.session = _.jwt.verify(rawJwt, opts.jwtSecret, false)
-      if (!opts.session && opts.jwtEnforce === true) {
-        return res.status(FORBIDDEN.code).send({ error: 'Expired token.' });
-      }
-
-      opts.session = _.jwt.toPayload(opts.session);
-
+    // Extract JWT session information
+    let rawJwt = _.express.getJwt({ req, 
+      key   : opts.jwtParam, 
+      header: opts.jwtHeader, 
+      cookie: opts.jwtCookie
+    });
+    if (!rawJwt) {
       return next();
-    }) 
-  }
+    }
+
+    req.headers[`${HEADER_PREFIX}Token`] = rawJwt;
+
+    rawJwt = _.removePrefix(rawJwt, 'Bearer').trim()
+    rawJwt = _.removePrefix(rawJwt, 'bearer').trim()
+  
+    opts.session = _.jwt.decode(rawJwt);
+    opts.session = _.jwt.toPayload(opts.session);
+  
+    if (opts.jwtSecret) {
+        
+      if (_.jwt.verify(rawJwt, opts.jwtSecret, true)) {
+        req.headers[`${HEADER_PREFIX}Token-Valid`] = 'TRUE'
+      } else {
+        req.headers[`${HEADER_PREFIX}Token-Valid`] = 'FALSE'
+        if (!opts.jwtInvalid) {
+          return res.status(UNAUTHORIZED.code).send({ error: 'Invalid token.' });
+        }
+      }
+
+      if (_.jwt.verify(rawJwt, opts.jwtSecret, false)) {
+        req.headers[`${HEADER_PREFIX}Token-Expired`] = 'FALSE';
+      } else {
+        req.headers[`${HEADER_PREFIX}Token-Expired`] = 'TRUE';
+        if (!opts.jwtExpired) {
+          return res.status(FORBIDDEN.code).send({ error: 'Expired token.' });
+        }
+      }
+
+    }
+
+    return next();
+  });
 
   await buildRouter(opts.router, opts.base, opts.library, opts)
 

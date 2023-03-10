@@ -216,9 +216,9 @@
       "program": "${workspaceFolder}/src/command.js",
       "args": [
         "--path",
-        "${workspaceFolder}/samples/functions/index.js",
+        "${workspaceFolder}/samples/params/index.js",
         "--jwtSecret",
-        "asdf"
+        "your-256-bit-secret"
       ]
     },
 
