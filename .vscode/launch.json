@@ -221,7 +221,20 @@
         "your-256-bit-secret"
       ]
     },
-
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "17 - Auth API",
+      "skipFiles": ["<node_internals>/**"],
+      "program": "${workspaceFolder}/src/command.js",
+      "envFile": "${workspaceFolder}/samples/auth-api/.env",
+      "args": [
+        "--path",
+        "${workspaceFolder}/samples/auth-api",
+        "--jwtSecret",
+        "abc123"
+      ]
+    },
 
 
 

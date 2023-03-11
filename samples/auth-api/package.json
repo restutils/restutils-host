@@ -1,0 +1,25 @@
+{
+  "name"       : "auth-api-example",
+  "version"    : "0.0.0",
+  "description": "",
+  "main"       : "index.js",
+  "scripts"    : {
+    "debug"      : "npx -node-options=--inspect=0.0.0.0:4117 restutils-host@latest --port 3000 --path ${PWD}/index.js",
+    "debug:watch": "nodemon --exec \"npm run debug\"",
+    "dev"        : "npx restutils-host@latest --port 300 --path ${PWD}/index.js",
+    "dev:watch"  : "nodemon --exec \"npm run dev\"",
+    "lint"       : "eslint .",
+    "lint:fix"   : "eslint . --fix",
+    "preinstall" : "npm i restutils-helpers@latest"
+  },
+  "keywords"    : [],
+  "author"      : "",
+  "license"     : "ISC",
+  "dependencies": {
+    "dotenv"           : "^16.0.3",
+    "restutils-helpers": "^0.0.50"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.21"
+  }
+}
