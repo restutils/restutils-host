@@ -5,7 +5,7 @@ const { BAD_REQUEST } = _.HTTP.STATUS.PHRASES;
 const login = async (data) => {
 
   const { _session: session } = data;
-  if (session) {
+  if (session && session.id) {
     return _.errors.message('Already logged in.', { status: BAD_REQUEST.code });
   }
 
@@ -13,16 +13,16 @@ const login = async (data) => {
     return _.errors.message('Email and password required.', { status: BAD_REQUEST.code });
   }
 
-  const payload = {
+  const user = {
     id   : 12345,
     email: data.email,
     name : 'Joe Blow'
   };
 
-  const claims = _.jwt.toClaims(payload);
+  const claims = _.jwt.toClaims(user);
   const token  = _.jwt.encode(claims, process.env.JWT_SECRET);
 
-  return { token }
+  return { token, user }
 }
 
 module.exports = login;

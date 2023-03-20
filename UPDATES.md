@@ -33,3 +33,7 @@
 ## v0.8.0 (20230308)
 
 * Add incoming JWT support for cookies, headers, and querystring parameters.
+
+## v0.9.0 (20230311)
+
+* Improve CORS support to allow multiple origins.

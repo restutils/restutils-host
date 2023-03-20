@@ -115,7 +115,7 @@ And, maybe even kick it up a notch by tossing Nodemon into the mix...
 | `base`        | Base path of listener          | `string`        |                 |
 | `publish`     | Route to publish definition.   | `string`        | `.restutils`    |
 | `caps`        | Allow all-caps for names.      | `boolean`       | `true`          |
-| `cors`        | Enable CORS                    | `boolean`       | `true`          |
+| `cors`        | Allowed CORS origin            | `string`        |                 |
 | `port`        | Port for incoming requests     | `number`        | `3000`          |
 | `install`     | Install dependencies if needed | `boolean`       | `true`          |
 | `jwt-secret`  | Validate JWT if set            | `string`        |                 |

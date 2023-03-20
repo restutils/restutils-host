@@ -1,4 +1,4 @@
-const _             = require('restutils-helpers')
+const _             = require('restutils-helpers');
 const cors          = require('cors');
 const express       = require('express');
 const cookieParser  = require('cookie-parser');
@@ -10,23 +10,30 @@ const TITLE = 'RESTUtils Host';
 const getDisplayName = opts => {
   if (opts.repo) {
     return `REPO : ${opts.repo}`;
-  } else if (opts.pkg) {
+  } if (opts.pkg) {
     return `PACKAGE : ${opts.pkg.data.name} v${opts.pkg.data.version}`;
-  } else if (opts.path) {
+  } if (opts.path) {
     const fileName = path.basename(opts.path);
     const dirName = path.basename(path.dirname(opts.path));
     return `FILE : ${[dirName, fileName].join('/')}`;
-  } else {
+  } 
     return `${TITLE} v${pkg.version}`;
-  }
-}
+  
+};
 
 const startServer = (opts) => {
 
   const app = express();
 
-  if (opts.cors !== false) {
-    app.use(cors());
+  const corsOrigins = [].concat(opts.cors).filter(x => (x && _.isValidString(x)));
+  if (corsOrigins.length > 0) {
+    app.use(cors({
+      origin              : corsOrigins,
+      methods             : "GET,HEAD,PUT,PATCH,POST,DELETE",
+      preflightContinue   : true,
+      optionsSuccessStatus: 204,
+      credentials         : true
+    }));
   }
 
   const jsonOptions = { extended: false };

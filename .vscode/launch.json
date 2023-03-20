@@ -232,7 +232,11 @@
         "--path",
         "${workspaceFolder}/samples/auth-api",
         "--jwtSecret",
-        "abc123"
+        "abc123",
+        "--cors",
+        "http://localhost:5001",
+        "--cors",
+        "http://localhost:3000"
       ]
     },
 

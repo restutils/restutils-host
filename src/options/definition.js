@@ -13,7 +13,7 @@ module.exports = {
   base   : { type: STRING,  name: 'Base path of listener',          default: '' },
   publish: { type: STRING,  name: 'Route to publish definition.',   default: '.restutils' },
   caps   : { type: BOOLEAN, name: 'Allow all-caps for names.',      default: true },
-  cors   : { type: BOOLEAN, name: 'Enable CORS',                    default: true },
+  cors   : { type: STRING,  name: 'Allowed CORS origin',            default: '' },
   port   : { type: NUMBER,  name: 'Port for incoming requests',     default: '3000' },
   install: { type: BOOLEAN, name: 'Install dependencies if needed', default: true },
 
