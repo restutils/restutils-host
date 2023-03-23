@@ -37,3 +37,7 @@
 ## v0.9.0 (20230311)
 
 * Improve CORS support to allow multiple origins.
+
+## v0.9.2 (20230323)
+
+* Update restutils-helpers for JWT claims.

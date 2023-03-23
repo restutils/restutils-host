@@ -289,7 +289,7 @@ const buildRouterFromLibrary = async (opts) => {
     rawJwt = _.removePrefix(rawJwt, 'bearer').trim()
   
     opts.session = _.jwt.decode(rawJwt);
-    opts.session = _.jwt.toPayload(opts.session);
+    opts.session = _.jwt.fromClaims(opts.session);
   
     if (opts.jwtSecret) {
         
