@@ -287,10 +287,11 @@ const buildRouterFromLibrary = async (opts) => {
 
     rawJwt = _.removePrefix(rawJwt, 'Bearer').trim()
     rawJwt = _.removePrefix(rawJwt, 'bearer').trim()
-  
+
     req.session = _.jwt.decode(rawJwt);
     req.session = _.jwt.fromClaims(req.session);
-  
+    req.headers[`${HEADER_PREFIX}Session`] = req.session;
+
     if (opts.jwtSecret) {
         
       if (_.jwt.verify(rawJwt, opts.jwtSecret, true)) {
