@@ -1,6 +1,6 @@
 {
   "name"        : "restutils-host",
-  "version"     : "0.9.5",
+  "version"     : "0.9.6",
   "description" : "Instantly convert any JavaScript or Node library into a web-based API!",
   "main"        : "src/index.js",
   "preferGlobal": true,
@@ -55,7 +55,7 @@
     "express"          : "^4.18.2",
     "func-loc"         : "^0.1.16",
     "jsonwebtoken"     : "^9.0.0",
-    "restutils-helpers": "^0.0.51",
+    "restutils-helpers": "^0.0.52",
     "yargs"            : "^17.7.1"
   }
 }
