@@ -1251,12 +1251,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{HOST}}/create-item",
+							"raw": "{{HOST}}/find-item",
 							"host": [
 								"{{HOST}}"
 							],
 							"path": [
-								"create-item"
+								"find-item"
 							]
 						}
 					},
@@ -1403,13 +1403,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{HOST}}/provider/receive?fiz=buz",
+							"raw": "{{HOST}}/Provider/receive/?fiz=buz",
 							"host": [
 								"{{HOST}}"
 							],
 							"path": [
-								"provider",
-								"receive"
+								"Provider",
+								"receive",
+								""
 							],
 							"query": [
 								{
@@ -1524,6 +1525,47 @@
 								{
 									"key": "fiz",
 									"value": "buz"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "16 - JWT",
+			"item": [
+				{
+					"name": "With Params",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"joe.blow@nowhere.com\",\n    \"password\": \"Pass1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/with-params?hello=world&jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIzNDUsImVtYWlsIjoiam9lLmJsb3dAbm93aGVyZS5jb20iLCJuYW1lIjoiSm9lIEJsb3ciLCJpYXQiOjE2Nzg1MzM5NTd9.B1W0YHUrOLIsQtgXGN_ycrcUM89BnSA49_jnlioRhCo",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"with-params"
+							],
+							"query": [
+								{
+									"key": "hello",
+									"value": "world"
+								},
+								{
+									"key": "jwt",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIzNDUsImVtYWlsIjoiam9lLmJsb3dAbm93aGVyZS5jb20iLCJuYW1lIjoiSm9lIEJsb3ciLCJpYXQiOjE2Nzg1MzM5NTd9.B1W0YHUrOLIsQtgXGN_ycrcUM89BnSA49_jnlioRhCo"
 								}
 							]
 						}

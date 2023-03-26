@@ -218,7 +218,7 @@
         "--path",
         "${workspaceFolder}/samples/params/index.js",
         "--jwtSecret",
-        "your-256-bit-secret"
+        "abc123"
       ]
     },
     {
