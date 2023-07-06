@@ -1,4 +1,4 @@
-const _ = require('restutils-helpers');
+const _ = require('restutils-helpers-js');
 
 const envFile = opts => {
   if (!_.isSet(opts.env)) { return null; }

@@ -1,4 +1,4 @@
-const _ = require('restutils-helpers');
+const _ = require('restutils-helpers-js');
 
 const packageRepo = opts => {
   if (!_.isValidString(opts.repo)) { return null; }

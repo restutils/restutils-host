@@ -1,4 +1,4 @@
-const _ = require('restutils-helpers');
+const _ = require('restutils-helpers-js');
 const c = require('./constants');
 
 const { BOOLEAN, NUMBER, STRING, ARRAY, PATH, FUNCTION } = c.OPTION_TYPE;

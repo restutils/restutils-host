@@ -1,4 +1,4 @@
-const _ = require('restutils-helpers');
+const _ = require('restutils-helpers-js');
 const validators = require('../validators');
 
 const validate = opts => {

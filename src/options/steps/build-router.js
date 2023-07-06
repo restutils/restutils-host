@@ -1,6 +1,6 @@
 const express    = require('express');
 const { locate } = require('func-loc');
-const _          = require('restutils-helpers');
+const _          = require('restutils-helpers-js');
 const pkg        = require('../../../package.json');
 
 const EMPTY_OK      = true;

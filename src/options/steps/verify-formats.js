@@ -1,4 +1,4 @@
-const _ = require('restutils-helpers');
+const _ = require('restutils-helpers-js');
 const def = require('../definition');
 
 const verifyFormats = (opts) => {

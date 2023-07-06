@@ -1,5 +1,5 @@
 const path       = require('path');
-const _          = require('restutils-helpers');
+const _          = require('restutils-helpers-js');
 const options    = require('./options');
 const processing = require('./processing');
 

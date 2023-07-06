@@ -40,4 +40,8 @@
 
 ## v0.9.2 (20230323)
 
-* Update restutils-helpers for JWT claims.
+* Update `restutils-helpers` for JWT claims.
+
+## v0.10.0 (20230706)
+
+* Switch `restutils-helpers` to `restutils-helpers-js`

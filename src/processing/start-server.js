@@ -1,4 +1,4 @@
-const _             = require('restutils-helpers');
+const _             = require('restutils-helpers-js');
 const cors          = require('cors');
 const express       = require('express');
 const cookieParser  = require('cookie-parser');

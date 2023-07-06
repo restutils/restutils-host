@@ -1,4 +1,4 @@
-const _ = require('restutils-helpers');
+const _ = require('restutils-helpers-js');
 
 const jwt = opts => {
   if (!_.isValidString(opts.jwtSecret)) { return null; }

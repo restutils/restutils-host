@@ -1,4 +1,4 @@
-const _ = require('restutils-helpers');
+const _ = require('restutils-helpers-js');
 
 const DELIMETERS = '_-';
 const EMPTY_OKAY = false;

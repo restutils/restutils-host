@@ -1,6 +1,6 @@
 const path = require('path');
 const proc = require('child_process');
-const _    = require('restutils-helpers');
+const _    = require('restutils-helpers-js');
 
 const WORK_FOLDER = 'work';
 

@@ -1,4 +1,4 @@
-const _    = require('restutils-helpers');
+const _    = require('restutils-helpers-js');
 const proc = require('child_process');
 const path = require('path');
 
