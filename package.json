@@ -1,21 +1,21 @@
 {
-  "name": "restutils-host",
-  "version": "0.10.1",
-  "description": "Instantly convert any JavaScript or Node library into a web-based API!",
-  "main": "src/index.js",
+  "name"        : "restutils-host",
+  "version"     : "0.10.2",
+  "description" : "Instantly convert any JavaScript or Node library into a web-based API!",
+  "main"        : "src/index.js",
   "preferGlobal": true,
-  "bin": {
+  "bin"         : {
     "restutils-host": "./src/command.js"
   },
   "scripts": {
-    "lint": "eslint ./src",
-    "lint:fix": "eslint ./src --fix src/**/*.js",
-    "markdown": "node ./src/command.js --markdown",
+    "lint"        : "eslint ./src",
+    "lint:fix"    : "eslint ./src --fix src/**/*.js",
+    "markdown"    : "node ./src/command.js --markdown",
     "markdown:cli": "node ./src/command.js --markdown-cli"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/restutils/restutils-host.git"
+    "url" : "git+https://github.com/restutils/restutils-host.git"
   },
   "keywords": [
     "api",
@@ -27,35 +27,36 @@
     "utils"
   ],
   "author": {
-    "name": "Fred Lackey",
+    "name" : "Fred Lackey",
     "email": "fred.lackey@gmail.com",
-    "url": "http://www.fredlackey.com"
+    "url"  : "http://www.fredlackey.com"
   },
   "license": "Apache-2.0",
-  "bugs": {
+  "bugs"   : {
     "url": "https://github.com/restutils/restutils-host/issues"
   },
-  "homepage": "https://github.com/restutils/restutils-host#readme",
+  "homepage"       : "https://github.com/restutils/restutils-host#readme",
   "devDependencies": {
-    "eslint": "^8.36.0",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-standard": "^17.0.0",
-    "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-jsx-a11y": "^6.7.1",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^6.1.1",
-    "eslint-plugin-react": "^7.32.2",
+    "eslint"                   : "^8.46.0",
+    "eslint-config-airbnb"     : "^19.0.4",
+    "eslint-config-standard"   : "^17.1.0",
+    "eslint-plugin-import"     : "^2.28.0",
+    "eslint-plugin-jsx-a11y"   : "^6.7.1",
+    "eslint-plugin-node"       : "^11.1.0",
+    "eslint-plugin-promise"    : "^6.1.1",
+    "eslint-plugin-react"      : "^7.33.0",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-standard": "^4.1.0"
+    "eslint-plugin-standard"   : "^4.1.0"
   },
   "dependencies": {
-    "cookie-parser": "^1.4.6",
-    "cors": "^2.8.5",
-    "download-git-repo": "^3.0.2",
-    "express": "^4.18.2",
-    "func-loc": "^0.1.16",
-    "jsonwebtoken": "^9.0.0",
-    "restutils-helpers-js": "^0.1.1",
-    "yargs": "^17.7.1"
+    "cookie-parser"       : "^1.4.6",
+    "cors"                : "^2.8.5",
+    "download-git-repo"   : "^3.0.2",
+    "express"             : "^4.18.2",
+    "func-loc"            : "^0.1.16",
+    "jsonwebtoken"        : "^9.0.1",
+    "restutils-helpers-js": "^0.1.6",
+    "rimraf"              : "^5.0.1",
+    "yargs"               : "^17.7.2"
   }
 }

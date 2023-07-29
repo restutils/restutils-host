@@ -45,3 +45,7 @@
 ## v0.10.0 (20230706)
 
 * Switch `restutils-helpers` to `restutils-helpers-js`
+
+## v0.10.2 (20230729)
+
+* Update all dependencies
